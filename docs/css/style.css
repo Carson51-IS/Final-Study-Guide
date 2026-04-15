@@ -109,8 +109,11 @@ header nav a:hover, header nav a.active { color:var(--accent); }
 .sidebar a:hover { background:var(--bg-card-hover); color:var(--text); }
 .sidebar a.active { background:var(--accent); color:#fff; font-weight:600; }
 
-/* CARDS */
-.section-block { margin-bottom:2.5rem; }
+/* CARDS — scroll-margin so #hash links land below sticky header */
+.section-block {
+  margin-bottom:2.5rem;
+  scroll-margin-top: 5.5rem;
+}
 .section-title {
   font-size:1.4rem; font-weight:700; margin-bottom:1rem;
   padding-bottom:.5rem; border-bottom:2px solid var(--accent);

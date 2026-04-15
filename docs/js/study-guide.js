@@ -4,7 +4,7 @@
   if(!sidebar||!content) return;
 
   sidebar.innerHTML = STUDY_DATA.map(s =>
-    `<a href="#${s.id}" data-section="${s.id}">${s.title}</a>`
+    `<a href="#${s.id}" data-section="${s.id}" class="sidebar-jump">${s.title}</a>`
   ).join('');
 
   content.innerHTML = STUDY_DATA.map(s => {
@@ -26,7 +26,7 @@
       <div class="section-block" id="${s.id}">
         <div class="section-title">
           <span><span class="topic-badge ${s.badge}">${s.title}</span> ${s.title}</span>
-          <button class="expand-all" data-section="${s.id}">Expand All</button>
+          <button type="button" class="expand-all" data-section="${s.id}">Expand All</button>
         </div>
         ${cards}
       </div>`;
@@ -43,17 +43,71 @@
     });
   });
 
-  const links = sidebar.querySelectorAll('a');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        links.forEach(l=>l.classList.remove('active'));
-        const match = sidebar.querySelector(`a[data-section="${e.target.id}"]`);
-        if(match) match.classList.add('active');
-      }
+  const links = sidebar.querySelectorAll('a.sidebar-jump');
+  let skipSpyUntil = 0;
+
+  function setActiveSidebar(id){
+    links.forEach(l => l.classList.toggle('active', l.dataset.section === id));
+  }
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.dataset.section;
+      const el = document.getElementById(id);
+      if(!el) return;
+      skipSpyUntil = Date.now() + 1200;
+      setActiveSidebar(id);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', '#' + id);
     });
-  },{rootMargin:'-80px 0px -60% 0px'});
-  document.querySelectorAll('.section-block').forEach(b=>observer.observe(b));
+  });
+
+  /* Scroll-spy: pick the section whose top is just below the header (stable vs. multi-intersect) */
+  const headerOffset = () => {
+    const h = document.querySelector('header');
+    return h ? h.getBoundingClientRect().height + 12 : 80;
+  };
+
+  function updateSpyFromScroll(){
+    if(Date.now() < skipSpyUntil) return;
+    const blocks = [...document.querySelectorAll('.section-block')];
+    if(!blocks.length) return;
+    const line = headerOffset();
+    let active = blocks[0];
+    for(const b of blocks){
+      const top = b.getBoundingClientRect().top;
+      if(top <= line + 8) active = b;
+      else break;
+    }
+    setActiveSidebar(active.id);
+  }
+
+  let scrollTick = null;
+  window.addEventListener('scroll', () => {
+    if(scrollTick) return;
+    scrollTick = requestAnimationFrame(() => {
+      scrollTick = null;
+      updateSpyFromScroll();
+    });
+  }, { passive: true });
+
+  window.addEventListener('load', () => {
+    if(location.hash){
+      const id = decodeURIComponent(location.hash.slice(1));
+      const el = document.getElementById(id);
+      if(el){
+        skipSpyUntil = Date.now() + 1200;
+        setActiveSidebar(id);
+        requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: 'auto', block: 'start' });
+          updateSpyFromScroll();
+        });
+      }
+    } else {
+      updateSpyFromScroll();
+    }
+  });
 
   // Theme toggle
   const toggle = document.getElementById('theme-toggle');

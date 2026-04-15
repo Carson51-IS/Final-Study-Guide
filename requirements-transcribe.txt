@@ -1,0 +1,2 @@
+# Optional: transcribe study videos (see README — Study video transcripts)
+faster-whisper>=1.0.0,<2.0.0

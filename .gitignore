@@ -1,0 +1,10 @@
+# Recordings and raw media (transcripts *.md stay tracked)
+*.m4a
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi
+*.wmv
+*.flv
+*.aac

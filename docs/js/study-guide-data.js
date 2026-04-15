@@ -390,7 +390,7 @@ const STUDY_DATA = [
 <p>A <strong>shibboleth</strong> is "a peculiarity of pronunciation, behavior, mode of dress, etc., that distinguishes a particular class or set of persons." Modern examples: place-name pronunciations (e.g., "Wollochet Bay").</p>`,sources:["Slide: 13 Authentication, slides 4-12","Transcripts: 2026-04-14 session 4"]},
 
 {bullet:"Identification, Authentication, Authorization",detail:`<ul>
-<li><strong>Identification:</strong> An identity <strong>claim</strong> ("I am Carson")</li>
+<li><strong>Identification:</strong> An identity <strong>claim</strong> (e.g. "I am Pat")</li>
 <li><strong>Authentication:</strong> <strong>Proving</strong> that claim (passport, password)</li>
 <li><strong>Authorization:</strong> What you're <strong>allowed to do</strong> after authentication (permissions, roles)</li>
 </ul>`,sources:["Slide: 13 Authentication, slide 13","Transcripts: 2026-03-31, 2026-04-14 session 1"]},

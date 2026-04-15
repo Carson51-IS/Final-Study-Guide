@@ -40,6 +40,6 @@ python tools/transcribe_study_videos.py --write-index
 
 - Existing transcript files are skipped unless you pass `--force`.
 - Default model is Whisper **tiny** on **CPU** (`--model base` or `--model small` for better accuracy; `--device cuda` with `--compute-type float16` if you have a suitable GPU).
-- If the project lives on **OneDrive**, consider copying long recordings to a local folder before transcribing for faster, more reliable I/O.
+- If recordings sit on a slow or cloud-synced folder, copy them to a local directory first for faster, more reliable I/O.
 
 See `python tools/transcribe_study_videos.py --help` for all options.

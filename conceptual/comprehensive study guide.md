@@ -658,7 +658,7 @@ From **Judges 12:5-6**: The Gileadites used pronunciation of "Shibboleth" (vs. "
 
 ### Core Concepts
 
-- **Identification:** An identity **claim** ("I am Carson")
+- **Identification:** An identity **claim** (e.g. "I am Pat")
 - **Authentication:** **Proving** that claim (showing a passport, entering a password)
 - **Authorization:** What you're **allowed to do** after authentication (permissions, roles, access levels)
 

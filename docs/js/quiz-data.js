@@ -2193,7 +2193,7 @@ const QUIZ_DATA = [
       "D. Federation"
     ],
     correct: 2,
-    explanation: "Entering a username is identification — making a claim about who you are ('I am Carson'). Authentication is PROVING that claim (entering a password, scanning a fingerprint). Authorization is what you're ALLOWED to do after authentication. 'Identification is a claim. Authentication is proving who you are. Authorization is what you can do.'",
+    explanation: "Entering a username is identification — making a claim about who you are (e.g. 'I am Pat'). Authentication is PROVING that claim (entering a password, scanning a fingerprint). Authorization is what you're ALLOWED to do after authentication. 'Identification is a claim. Authentication is proving who you are. Authorization is what you can do.'",
     sourceRef: "Study Guide > Authentication > Core Concepts"
   },
   {

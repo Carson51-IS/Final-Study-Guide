@@ -172,7 +172,20 @@ header nav a:hover, header nav a.active { color:var(--accent); }
   display:inline-block; font-size:.7rem; color:var(--accent);
   background:rgba(108,140,255,.1); padding:.15rem .45rem;
   border-radius:4px; margin-right:.3rem; margin-bottom:.3rem;
+  line-height:1.5; vertical-align:middle;
 }
+.source-tag a {
+  color:var(--accent); font-weight:600; text-decoration:underline;
+  text-underline-offset:2px;
+}
+.source-tag a:hover { color:var(--accent-hover); }
+.source-tag-label { font-weight:600; opacity:.9; }
+.source-slides-ref, .source-tx-hint {
+  color:var(--text-muted); font-weight:400; font-size:.65rem;
+}
+.source-tag--slide .source-slides-ref { font-style:italic; }
+.source-tag .source-tx-all { font-weight:500; font-size:.62rem; text-decoration:none; opacity:.85; }
+.source-tag .source-tx-all:hover { opacity:1; text-decoration:underline; }
 
 /* TOPIC BADGES */
 .topic-badge {

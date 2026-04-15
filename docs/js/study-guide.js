@@ -17,7 +17,7 @@
         <div class="card-body">
           ${p.detail}
           <div style="margin-top:.8rem">
-            ${p.sources.map(src=>`<span class="source-tag">${src}</span>`).join('')}
+            ${p.sources.map(src => (typeof formatStudySourceTag === 'function' ? formatStudySourceTag(src) : `<span class="source-tag">${String(src).replace(/</g,'&lt;')}</span>`)).join('')}
           </div>
         </div>
       </div>`).join('');

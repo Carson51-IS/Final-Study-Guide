@@ -44,41 +44,62 @@
   });
 
   const links = sidebar.querySelectorAll('a.sidebar-jump');
-  let skipSpyUntil = 0;
+  /** While set, scroll-spy must not override (sidebar click or hash load). */
+  let navLockedSectionId = null;
+  let navLockTimer = null;
 
   function setActiveSidebar(id){
     links.forEach(l => l.classList.toggle('active', l.dataset.section === id));
   }
 
+  function releaseNavLock(){
+    navLockedSectionId = null;
+    if(navLockTimer){ clearTimeout(navLockTimer); navLockTimer = null; }
+    updateSpyFromScroll();
+  }
+
+  function lockNavToSection(id, scrollSmooth){
+    navLockedSectionId = id;
+    if(navLockTimer) clearTimeout(navLockTimer);
+    navLockTimer = setTimeout(releaseNavLock, scrollSmooth ? 2800 : 500);
+    setActiveSidebar(id);
+  }
+
   links.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
+      e.stopPropagation();
       const id = link.dataset.section;
       const el = document.getElementById(id);
       if(!el) return;
-      skipSpyUntil = Date.now() + 1200;
-      setActiveSidebar(id);
+      lockNavToSection(id, true);
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       history.replaceState(null, '', '#' + id);
     });
   });
 
-  /* Scroll-spy: pick the section whose top is just below the header (stable vs. multi-intersect) */
   const headerOffset = () => {
     const h = document.querySelector('header');
     return h ? h.getBoundingClientRect().height + 12 : 80;
   };
 
+  /**
+   * Last section in document order whose top edge is at or above the reading line.
+   * Do NOT break early: a tight threshold + "break" skipped Privacy when its top was ~90px.
+   */
   function updateSpyFromScroll(){
-    if(Date.now() < skipSpyUntil) return;
+    if(navLockedSectionId){
+      setActiveSidebar(navLockedSectionId);
+      return;
+    }
     const blocks = [...document.querySelectorAll('.section-block')];
     if(!blocks.length) return;
     const line = headerOffset();
+    const slack = 48;
     let active = blocks[0];
     for(const b of blocks){
       const top = b.getBoundingClientRect().top;
-      if(top <= line + 8) active = b;
-      else break;
+      if(top <= line + slack) active = b;
     }
     setActiveSidebar(active.id);
   }
@@ -97,11 +118,9 @@
       const id = decodeURIComponent(location.hash.slice(1));
       const el = document.getElementById(id);
       if(el){
-        skipSpyUntil = Date.now() + 1200;
-        setActiveSidebar(id);
+        lockNavToSection(id, false);
         requestAnimationFrame(() => {
           el.scrollIntoView({ behavior: 'auto', block: 'start' });
-          updateSpyFromScroll();
         });
       }
     } else {

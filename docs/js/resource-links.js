@@ -1,15 +1,28 @@
 /**
  * Resolves study material paths for clickable source tags.
  *
- * GitHub Pages only publishes /docs — repo files are NOT on that host unless you use full GitHub links. Set:
- *   window.STUDY_RESOURCE_GITHUB_BASE = 'https://github.com/YOU/REPO/blob/main';
- * (no trailing slash). Leave unset for relative ../conceptual/... (works with Live Server when docs/ is one level below repo root).
+ * - GitHub Pages (https://owner.github.io/repo/…): auto-builds
+ *   https://github.com/owner/repo/blob/main/<path> so slides/transcripts open in GitHub.
+ * - Local Live Server: resolves ../conceptual/… relative to the current page (open the
+ *   repo folder in VS Code and use Go Live so URLs look like …/docs/index.html).
+ * - Optional override: window.STUDY_RESOURCE_GITHUB_BASE = 'https://github.com/O/R/blob/main'
  */
 (function (global) {
   const GITHUB_BASE =
     typeof global.STUDY_RESOURCE_GITHUB_BASE === 'string'
       ? global.STUDY_RESOURCE_GITHUB_BASE.replace(/\/$/, '')
       : '';
+
+  /** Project Pages: owner.github.io/repo/ → { owner, repo } */
+  function parseGitHubPagesSite() {
+    const m = location.hostname.match(/^([^.]+)\.github\.io$/i);
+    if (!m) return null;
+    const owner = m[1];
+    const parts = location.pathname.split('/').filter(Boolean);
+    const repo = parts[0] || '';
+    if (!repo) return null;
+    return { owner, repo };
+  }
 
   /** Map normalized deck title (lowercase) → filenames under conceptual/powerpoints/ */
   const SLIDE_DECKS = {
@@ -107,13 +120,29 @@
   }
 
   function hrefFromRepoPath(repoPath) {
-    const norm = repoPath.replace(/\\/g, '/');
+    const norm = repoPath.replace(/\\/g, '/').replace(/^\/+/, '');
     const encoded = norm
       .split('/')
       .map((seg) => encodeURIComponent(seg))
       .join('/');
-    if (GITHUB_BASE) return `${GITHUB_BASE}/${encoded}`;
-    return `../${encoded}`;
+
+    if (GITHUB_BASE) {
+      return `${GITHUB_BASE}/${encoded}`;
+    }
+
+    const pages = parseGitHubPagesSite();
+    if (pages) {
+      const o = encodeURIComponent(pages.owner);
+      const r = encodeURIComponent(pages.repo);
+      return `https://github.com/${o}/${r}/blob/main/${encoded}`;
+    }
+
+    /* Local: page is …/docs/index.html → ../conceptual/… is sibling of docs/ */
+    try {
+      return new URL(`../${encoded}`, location.href).href;
+    } catch (e) {
+      return `../${encoded}`;
+    }
   }
 
   /**

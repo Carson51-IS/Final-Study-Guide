@@ -116,6 +116,16 @@
     return `../${encoded}`;
   }
 
+  /**
+   * Extracted decks use "## Slide N" — GitHub (and most viewers) anchor as #slide-N.
+   */
+  function markdownSlideFragment(slidesNote) {
+    if (!slidesNote) return '';
+    const m = String(slidesNote).match(/\d+/);
+    if (!m) return '';
+    return `#slide-${m[0]}`;
+  }
+
   function formatSlideSource(raw) {
     let rest = raw.replace(/^Slide:\s*/i, '').trim();
     let slidesNote = '';
@@ -130,12 +140,16 @@
     if (!deck) {
       return `<span class="source-tag" title="${label}">${label}</span>`;
     }
-    const mdHref = hrefFromRepoPath(deck.md);
+    const mdBase = hrefFromRepoPath(deck.md);
+    const frag = markdownSlideFragment(slidesNote);
+    const mdHref = mdBase + frag;
     const pptxHref = hrefFromRepoPath(deck.pptx);
-    const hint = slidesNote
-      ? `Slides: ${escapeHtml(slidesNote)} — open deck or text extract.`
-      : 'Open PowerPoint or Markdown extract.';
-    return `<span class="source-tag source-tag--slide" title="${escapeHtml(hint)}"><span class="source-tag-label">Slide:</span> ${escapeHtml(rest)}${slidesNote ? ` <span class="source-slides-ref">(${escapeHtml(slidesNote)})</span>` : ''} · <a href="${pptxHref}" target="_blank" rel="noopener">.pptx</a> · <a href="${mdHref}" target="_blank" rel="noopener">text</a></span>`;
+    const firstNum = frag ? frag.replace(/^#slide-/, '') : '';
+    const hint =
+      firstNum
+        ? `Opens the slide extract and jumps to “Slide ${firstNum}” (same wording as in class).`
+        : 'Opens the full slide extract in Markdown (same content as the PowerPoint).';
+    return `<span class="source-tag source-tag--slide" title="${escapeHtml(hint)}"><a class="source-slide-link" href="${mdHref}" target="_blank" rel="noopener">${label}</a><span class="source-slide-meta"> · <a href="${pptxHref}" target="_blank" rel="noopener" title="Download original PowerPoint file">.pptx</a></span></span>`;
   }
 
   function formatTranscriptSource(raw) {

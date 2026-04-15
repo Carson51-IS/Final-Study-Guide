@@ -179,6 +179,17 @@ header nav a:hover, header nav a.active { color:var(--accent); }
   text-underline-offset:2px;
 }
 .source-tag a:hover { color:var(--accent-hover); }
+.source-slide-link {
+  display:inline-block;
+  font-weight:600;
+  text-decoration:underline !important;
+  padding:.1rem 0;
+  margin:-.1rem 0;
+  max-width:100%;
+  line-height:1.45;
+}
+.source-tag--slide .source-slide-meta { font-weight:500; }
+.source-tag--slide .source-slide-meta a { font-size:.68rem; }
 .source-tag-label { font-weight:600; opacity:.9; }
 .source-slides-ref, .source-tx-hint {
   color:var(--text-muted); font-weight:400; font-size:.65rem;

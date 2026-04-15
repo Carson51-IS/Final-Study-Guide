@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IS 414 Flashcards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">IS 414 Final Prep</a>
+    <nav>
+      <a href="index.html">Study Guide</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="flashcards.html" class="active">Flashcards</a>
+      <button id="theme-toggle" title="Toggle theme">&#9788;/&#9790;</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div id="fc-setup" class="quiz-setup">
+      <h2>Flashcards</h2>
+      <p class="fc-intro">Pick topics and how many cards you want. Each card shows a question; flip it to see the correct answer and a short explanation.</p>
+
+      <div class="topic-checkboxes" id="fc-topic-checks"></div>
+
+      <div class="count-row">
+        <label for="fc-count">Cards per session:</label>
+        <input type="number" id="fc-count" min="1" value="25">
+        <span class="max-label" id="fc-max-label">/ 0 available</span>
+      </div>
+
+      <button class="btn btn-primary" id="fc-start-btn" type="button">Start</button>
+    </div>
+
+    <div id="fc-area" class="hidden">
+      <div class="fc-toolbar">
+        <div class="fc-toolbar-left">
+          <span id="fc-progress" class="fc-progress-text">Card 1 of 25</span>
+          <div class="fc-progress-bar-wrap"><div class="fc-progress-bar" id="fc-progress-bar"></div></div>
+        </div>
+        <button type="button" class="btn btn-secondary" id="fc-end-btn">End session</button>
+      </div>
+
+      <p class="fc-flip-hint" id="fc-hint-front">Click the card or press <kbd>Space</kbd> to show the answer</p>
+      <p class="fc-flip-hint hidden" id="fc-hint-back">Click or <kbd>Space</kbd> to see the question again</p>
+
+      <div class="fc-scene">
+        <div class="fc-card" id="fc-card" role="button" tabindex="0" aria-label="Flashcard">
+          <div class="fc-inner" id="fc-inner">
+            <div class="fc-face fc-front" id="fc-front"></div>
+            <div class="fc-face fc-back" id="fc-back"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-nav fc-card-nav">
+        <button type="button" class="btn btn-secondary" id="fc-prev-btn">← Previous</button>
+        <button type="button" class="btn btn-primary" id="fc-next-btn">Next →</button>
+      </div>
+      <p class="fc-kbd-hint">Tip: <kbd>←</kbd> <kbd>→</kbd> to move between cards</p>
+    </div>
+  </div>
+
+  <div id="study-panel-backdrop" class="study-panel-backdrop" aria-hidden="true"></div>
+  <aside id="study-panel" class="study-panel" aria-label="Study material for this card" aria-hidden="true">
+    <div class="study-panel-header">
+      <h3 id="study-panel-heading">Study material</h3>
+      <button type="button" id="study-panel-close" class="study-panel-close" aria-label="Close panel">×</button>
+    </div>
+    <div id="study-panel-body" class="study-panel-body"></div>
+  </aside>
+
+  <script src="js/resource-links.js"></script>
+  <script src="js/study-guide-data.js"></script>
+  <script src="js/quiz-data.js"></script>
+  <script src="js/flashcards.js"></script>
+</body>
+</html>

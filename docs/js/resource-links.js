@@ -146,6 +146,48 @@
   }
 
   /**
+   * Same repo path as hrefFromRepoPath, but use raw.githubusercontent.com for PDFs so the
+   * browser opens the file inline (diagrams render). Blob URLs often force GitHub’s wrapper.
+   */
+  function hrefFromRepoPathRaw(repoPath) {
+    const norm = repoPath.replace(/\\/g, '/').replace(/^\/+/, '');
+    const encoded = norm
+      .split('/')
+      .map((seg) => encodeURIComponent(seg))
+      .join('/');
+
+    if (GITHUB_BASE) {
+      const m = GITHUB_BASE.match(
+        /github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)/i
+      );
+      if (m) {
+        const o = m[1];
+        const r = m[2];
+        const branch = m[3];
+        return `https://raw.githubusercontent.com/${o}/${r}/${branch}/${encoded}`;
+      }
+    }
+
+    const pages = parseGitHubPagesSite();
+    if (pages) {
+      const o = encodeURIComponent(pages.owner);
+      const r = encodeURIComponent(pages.repo);
+      return `https://raw.githubusercontent.com/${o}/${r}/main/${encoded}`;
+    }
+
+    try {
+      return new URL(`../${encoded}`, location.href).href;
+    } catch (e) {
+      return `../${encoded}`;
+    }
+  }
+
+  /** conceptual/powerpoints/Deck.pptx → conceptual/powerpoints/pdf/Deck.pdf */
+  function pdfExportPathFromPptx(pptxPath) {
+    return pptxPath.replace(/\/([^/]+)\.pptx$/i, '/pdf/$1.pdf');
+  }
+
+  /**
    * Extracted decks use "## Slide N" — GitHub (and most viewers) anchor as #slide-N.
    */
   function markdownSlideFragment(slidesNote) {
@@ -173,12 +215,16 @@
     const frag = markdownSlideFragment(slidesNote);
     const mdHref = mdBase + frag;
     const pptxHref = hrefFromRepoPath(deck.pptx);
+    const pdfPath = pdfExportPathFromPptx(deck.pptx);
+    const pdfBase = hrefFromRepoPathRaw(pdfPath);
     const firstNum = frag ? frag.replace(/^#slide-/, '') : '';
+    const pdfHref =
+      pdfBase + (firstNum ? `#page=${firstNum}` : '');
     const hint =
       firstNum
-        ? `Opens the slide extract and jumps to “Slide ${firstNum}” (same wording as in class).`
-        : 'Opens the full slide extract in Markdown (same content as the PowerPoint).';
-    return `<span class="source-tag source-tag--slide" title="${escapeHtml(hint)}"><a class="source-slide-link" href="${mdHref}" target="_blank" rel="noopener">${label}</a><span class="source-slide-meta"> · <a href="${pptxHref}" target="_blank" rel="noopener" title="Download original PowerPoint file">.pptx</a></span></span>`;
+        ? `View the exported PDF (same slides, pictures, and diagrams as class). Jumps to slide ${firstNum}. Also: plain text extract or download .pptx.`
+        : `View the exported PDF (slides with pictures and diagrams). Also: text extract or download .pptx.`;
+    return `<span class="source-tag source-tag--slide" title="${escapeHtml(hint)}"><a class="source-slide-link" href="${pdfHref}" target="_blank" rel="noopener">${label}</a><span class="source-slide-meta"> · <a href="${mdHref}" target="_blank" rel="noopener" title="Extracted text (searchable)">text</a> · <a href="${pptxHref}" target="_blank" rel="noopener" title="Download original PowerPoint">.pptx</a></span></span>`;
   }
 
   function formatTranscriptSource(raw) {

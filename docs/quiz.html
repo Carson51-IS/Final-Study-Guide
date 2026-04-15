@@ -14,6 +14,7 @@
     <nav>
       <a href="index.html">Study Guide</a>
       <a href="quiz.html" class="active">Quiz</a>
+      <a href="flashcards.html">Flashcards</a>
       <button id="theme-toggle" title="Toggle theme">☀/☾</button>
     </nav>
   </header>
@@ -49,6 +50,17 @@
     <div id="results-area" class="hidden"></div>
   </div>
 
+  <div id="study-panel-backdrop" class="study-panel-backdrop" aria-hidden="true"></div>
+  <aside id="study-panel" class="study-panel" aria-label="Study material for this question" aria-hidden="true">
+    <div class="study-panel-header">
+      <h3 id="study-panel-heading">Study material</h3>
+      <button type="button" id="study-panel-close" class="study-panel-close" aria-label="Close panel">×</button>
+    </div>
+    <div id="study-panel-body" class="study-panel-body"></div>
+  </aside>
+
+  <script src="js/resource-links.js"></script>
+  <script src="js/study-guide-data.js"></script>
   <script src="js/quiz-data.js"></script>
   <script src="js/quiz.js"></script>
 </body>

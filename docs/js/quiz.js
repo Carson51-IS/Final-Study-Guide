@@ -23,6 +23,86 @@
   const nextBtn    = document.getElementById('next-btn');
   const progBar    = document.getElementById('progress-bar');
   const qContainer = document.getElementById('question-container');
+  const studyBackdrop = document.getElementById('study-panel-backdrop');
+  const studyPanel = document.getElementById('study-panel');
+  const studyPanelBody = document.getElementById('study-panel-body');
+  const studyPanelHeading = document.getElementById('study-panel-heading');
+  const studyPanelClose = document.getElementById('study-panel-close');
+
+  function escapeHtml(s){
+    return String(s)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  function studyGuideHash(q){
+    return typeof studyGuideHashFromRef === 'function'
+      ? studyGuideHashFromRef(q.topic, q.sourceRef)
+      : q.topic;
+  }
+
+  function studyActionsRow(q){
+    const sgHash = studyGuideHash(q);
+    return `<div class="exp-ref study-actions">
+      <button type="button" class="btn btn-link" data-study-panel="${q.id}">Slides & notes</button>
+      <span class="study-actions-sep">·</span>
+      <a href="index.html#${sgHash}" target="_blank" rel="noopener" class="btn-link">Full study guide</a>
+      <span class="study-actions-ref">\u{1F4D6} ${escapeHtml(q.sourceRef || '')}</span>
+    </div>`;
+  }
+
+  function findStudyPoints(topicKey, sourceRef){
+    if(typeof getStudyAnchorFromRef !== 'function') return [];
+    return getStudyAnchorFromRef(topicKey, sourceRef).points;
+  }
+
+  function resolveQuestionById(id){
+    const inPool = pool.find(x => x.id === id);
+    if(inPool) return inPool;
+    return QUIZ_DATA.find(x => x.id === id);
+  }
+
+  function openStudyPanel(q){
+    if(!studyPanel || !studyPanelBody) return;
+    const section = typeof STUDY_DATA !== 'undefined' ? STUDY_DATA.find(s => s.id === q.topic) : null;
+    const points = findStudyPoints(q.topic, q.sourceRef);
+    const title = section ? section.title : (TOPICS.find(t=>t.key===q.topic)?.label || q.topic);
+
+    let html = `<p class="study-panel-ref"><strong>Reference:</strong> ${escapeHtml(q.sourceRef || '')}</p>`;
+    if(!points.length){
+      const h = escapeHtml(studyGuideHash(q));
+      html += `<p style="color:var(--text-muted)">No matching section in the embedded guide. <a href="index.html#${h}" target="_blank" rel="noopener">Open full study guide</a>.</p>`;
+    } else {
+      points.forEach(p => {
+        html += `<div class="study-panel-block"><h4>${escapeHtml(p.bullet)}</h4><div class="study-panel-detail">${p.detail}</div>`;
+        if(p.sources && p.sources.length){
+          html += '<div class="study-panel-sources">' + p.sources.map(s =>
+            typeof formatStudySourceTag === 'function' ? formatStudySourceTag(s) : `<span class="source-tag">${escapeHtml(s)}</span>`
+          ).join('') + '</div>';
+        }
+        html += '</div>';
+      });
+    }
+
+    studyPanelHeading.textContent = title;
+    studyPanelBody.innerHTML = html;
+    studyBackdrop.classList.add('study-panel--open');
+    studyPanel.classList.add('study-panel--open');
+    studyBackdrop.setAttribute('aria-hidden','false');
+    studyPanel.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeStudyPanel(){
+    if(!studyPanel) return;
+    studyBackdrop.classList.remove('study-panel--open');
+    studyPanel.classList.remove('study-panel--open');
+    studyBackdrop.setAttribute('aria-hidden','true');
+    studyPanel.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
 
   /* ── STATE ── */
   let pool = [];
@@ -133,14 +213,15 @@
         expHTML = `
         <div class="explanation-box">
           <div class="exp-label">✗ Incorrect</div>
-          <p>${q.explanation}</p>
-          <div class="exp-ref">📖 ${q.sourceRef} — <a href="index.html#${q.topic}" target="_blank" style="color:var(--accent)">View in Study Guide</a></div>
+          <p>${escapeHtml(q.explanation)}</p>
+          ${studyActionsRow(q)}
         </div>`;
       } else {
         expHTML = `
         <div class="explanation-box" style="border-left-color:var(--green)">
           <div class="exp-label" style="color:var(--green)">✓ Correct!</div>
-          <p>${q.explanation}</p>
+          <p>${escapeHtml(q.explanation)}</p>
+          ${studyActionsRow(q)}
         </div>`;
       }
     }
@@ -233,8 +314,8 @@
             <div class="q-text" style="font-size:.88rem">${q.question}</div>
             <p style="font-size:.82rem;color:var(--green);margin:.3rem 0"><strong>Correct:</strong> ${correctLabel}</p>
             <div class="explanation-box">
-              <p>${q.explanation}</p>
-              <div class="exp-ref">📖 ${q.sourceRef} — <a href="index.html#${q.topic}" target="_blank" style="color:var(--accent)">View in Study Guide</a></div>
+              <p>${escapeHtml(q.explanation)}</p>
+              ${studyActionsRow(q)}
             </div>
           </div>`;
         }).join('') + '</div>';
@@ -286,5 +367,21 @@
       localStorage.setItem('theme', document.body.className);
     });
   }
+
+  /* ── Study side panel (delegated — works after dynamic results HTML) ── */
+  document.body.addEventListener('click', e => {
+    const btn = e.target.closest('[data-study-panel]');
+    if(!btn) return;
+    e.preventDefault();
+    const id = +btn.getAttribute('data-study-panel');
+    const qu = resolveQuestionById(id);
+    if(qu) openStudyPanel(qu);
+  });
+  if(studyPanelClose) studyPanelClose.addEventListener('click', closeStudyPanel);
+  if(studyBackdrop) studyBackdrop.addEventListener('click', closeStudyPanel);
+  document.addEventListener('keydown', e => {
+    if(e.key !== 'Escape') return;
+    if(studyPanel && studyPanel.classList.contains('study-panel--open')) closeStudyPanel();
+  });
 
 })();

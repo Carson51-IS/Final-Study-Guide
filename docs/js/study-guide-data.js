@@ -495,3 +495,50 @@ const STUDY_DATA = [
 </ul>`,sources:["Slide: HB Gary Federal Hack, slides 14-15","Transcripts: 2026-04-02 sessions 2-3"]}
 ]}
 ];
+
+/**
+ * Match quiz sourceRef to study cards (same rules as the quiz side panel).
+ * @returns {{ sectionId: string, cardIndex: number|null, points: Array }}
+ */
+function getStudyAnchorFromRef(topicKey, sourceRef){
+  var section = STUDY_DATA.find(function(sec){ return sec.id === topicKey; });
+  if(!section || !section.points || !section.points.length){
+    return { sectionId: topicKey, cardIndex: null, points: [] };
+  }
+  var tail = (sourceRef || '').split('>').pop().trim();
+  var hint = tail.replace(/\?$/,'').toLowerCase();
+  var points = section.points;
+  if(!hint){
+    return { sectionId: section.id, cardIndex: 0, points: points.slice(0, 2) };
+  }
+  var words = hint.split(/[^\w]+/).filter(function(w){ return w.length > 2; });
+  var scored = points.map(function(p, idx){
+    var b = p.bullet.toLowerCase();
+    var score = 0;
+    if(b.includes(hint)) score += 25;
+    var hintPrefix = hint.slice(0, Math.min(48, hint.length));
+    if(hintPrefix.length > 5 && b.includes(hintPrefix)) score += 12;
+    words.forEach(function(w){ if(b.includes(w)) score += 4; });
+    return { p: p, idx: idx, score: score };
+  });
+  scored.sort(function(a, b){ return b.score - a.score; });
+  if(scored[0].score > 0){
+    return { sectionId: section.id, cardIndex: scored[0].idx, points: [scored[0].p] };
+  }
+  if(words.length){
+    var hitIdx = points.findIndex(function(p){
+      return words.some(function(w){ return p.bullet.toLowerCase().includes(w); });
+    });
+    if(hitIdx >= 0){
+      return { sectionId: section.id, cardIndex: hitIdx, points: [points[hitIdx]] };
+    }
+  }
+  return { sectionId: section.id, cardIndex: 0, points: points.slice(0, 2) };
+}
+
+/** Hash fragment for index.html: section only, or section/cardIndex (opens that card). */
+function studyGuideHashFromRef(topicKey, sourceRef){
+  var m = getStudyAnchorFromRef(topicKey, sourceRef);
+  if(m.cardIndex == null) return m.sectionId;
+  return m.sectionId + '/' + m.cardIndex;
+}

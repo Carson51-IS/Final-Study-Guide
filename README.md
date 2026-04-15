@@ -9,7 +9,7 @@ Materials for BYU **IS 414** (Security & Controls) final exam prep: conceptual o
 
 ## Notes
 
-- PowerPoint files live under `conceptual/powerpoints/`. PDF exports (for reading with diagrams) are in `conceptual/powerpoints/pdf/`.
+- PowerPoint files live under `conceptual/powerpoints/`. **PDF exports** (same decks with pictures/diagrams, for the study site) are in `conceptual/powerpoints/pdf/` — keep them in git so source links work on GitHub and locally.
 
 ## Study website (`docs/`)
 

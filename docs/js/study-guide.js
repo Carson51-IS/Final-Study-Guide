@@ -83,6 +83,60 @@
     return h ? h.getBoundingClientRect().height + 12 : 80;
   };
 
+  const prefersReducedMotion = () =>
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let highlightClearTimer = null;
+  function clearCardHighlights(){
+    if(highlightClearTimer){
+      clearTimeout(highlightClearTimer);
+      highlightClearTimer = null;
+    }
+    document.querySelectorAll('.card.study-highlight').forEach(c => c.classList.remove('study-highlight'));
+  }
+
+  /** @returns {{ sectionId: string, cardIndex: number|null }|null} */
+  function parseStudyLocationHash(){
+    const raw = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+    if(!raw) return null;
+    const m = raw.match(/^(.+)\/(\d+)$/);
+    if(m) return { sectionId: m[1], cardIndex: +m[2] };
+    return { sectionId: raw, cardIndex: null };
+  }
+
+  function applyHashToStudyGuide(){
+    const loc = parseStudyLocationHash();
+    if(!loc) return;
+    const block = document.getElementById(loc.sectionId);
+    if(!block) return;
+
+    clearCardHighlights();
+    lockNavToSection(loc.sectionId, false);
+
+    const smooth = !prefersReducedMotion();
+
+    if(loc.cardIndex != null){
+      const card = block.querySelector('.card[data-idx="' + loc.cardIndex + '"]');
+      if(card){
+        card.classList.add('open');
+        card.classList.add('study-highlight');
+        requestAnimationFrame(() => {
+          const y = card.getBoundingClientRect().top + window.scrollY - headerOffset();
+          window.scrollTo({ top: Math.max(0, y), behavior: smooth ? 'smooth' : 'auto' });
+        });
+        highlightClearTimer = setTimeout(() => {
+          card.classList.remove('study-highlight');
+          highlightClearTimer = null;
+        }, 5500);
+        return;
+      }
+    }
+
+    requestAnimationFrame(() => {
+      block.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    });
+  }
+
   /**
    * Last section in document order whose top edge is at or above the reading line.
    * Do NOT break early: a tight threshold + "break" skipped Privacy when its top was ~90px.
@@ -114,16 +168,14 @@
   }, { passive: true });
 
   window.addEventListener('load', () => {
-    if(location.hash){
-      const id = decodeURIComponent(location.hash.slice(1));
-      const el = document.getElementById(id);
-      if(el){
-        lockNavToSection(id, false);
-        requestAnimationFrame(() => {
-          el.scrollIntoView({ behavior: 'auto', block: 'start' });
-        });
-      }
-    } else {
+    if(location.hash) applyHashToStudyGuide();
+    else updateSpyFromScroll();
+  });
+
+  window.addEventListener('hashchange', () => {
+    if(location.hash) applyHashToStudyGuide();
+    else {
+      clearCardHighlights();
       updateSpyFromScroll();
     }
   });

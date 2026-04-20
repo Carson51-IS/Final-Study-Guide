@@ -11,9 +11,9 @@ const QUIZ_DATA = [
     question: "Which of the following is NOT one of the five elements required for an act to be legally classified as fraud?",
     choices: [
       "A. A false statement, representation, or disclosure",
-      "B. An intent to deceive",
-      "C. A motive of personal financial gain by the perpetrator",
-      "D. Justifiable reliance by the victim",
+      "B. An intent by the liar to deceive",
+      "C. A motive of personal financial gain",
+      "D. Justifiable reliance by a reasonable victim",
       "E. An injury or loss suffered by the victim"
     ],
     correct: 2,
@@ -98,8 +98,8 @@ const QUIZ_DATA = [
     question: "In the OneCoin case, how did Ruja Ignatova's scheme primarily commit fraud?",
     choices: [
       "A. By manipulating a real blockchain's consensus mechanism",
-      "B. By hacking into investors' crypto wallets",
-      "C. By convincing victims that profits came from sales when they actually came from new investors (Ponzi scheme)",
+      "B. By hacking directly into investors' crypto wallets",
+      "C. By paying earlier investors with new investor money (Ponzi)",
       "D. By shorting legitimate cryptocurrencies using insider knowledge"
     ],
     correct: 2,
@@ -137,9 +137,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Mark Scott, a lawyer involved in the OneCoin scheme, was brought in to:",
     choices: [
-      "A. Develop the OneCoin blockchain technology",
+      "A. Develop OneCoin's blockchain and mining infrastructure",
       "B. Recruit new investors through MLM channels",
-      "C. Set up shell companies and offshore accounts to launder approximately $400M",
+      "C. Launder about $400M through offshore shell companies",
       "D. Serve as CEO after Ruja Ignatova disappeared"
     ],
     correct: 2,
@@ -193,9 +193,9 @@ const QUIZ_DATA = [
     question: "Which of the following best describes the 'material fact' element of fraud?",
     choices: [
       "A. The lie must be documented in writing",
-      "B. The lie must be about something significant enough to induce someone to act",
+      "B. The lie must be significant enough to induce action",
       "C. The lie must involve a physical or tangible item",
-      "D. The lie must result in damages exceeding $10,000"
+      "D. The lie must cause damages exceeding $10,000"
     ],
     correct: 1,
     explanation: "A 'material fact' means the false statement must be about something significant (substantive) enough that it causes someone to do something they otherwise wouldn't have done. 'Material' means large or substantive — for example, a $47 discrepancy on a trillion-dollar firm would likely not be considered material.",
@@ -208,7 +208,7 @@ const QUIZ_DATA = [
     question: "Ruja Ignatova is currently:",
     choices: [
       "A. Serving a 20-year prison sentence in the U.S.",
-      "B. An FBI Top Ten Most Wanted fugitive with a $5 million reward",
+      "B. An FBI Top Ten fugitive with a $5M reward",
       "C. Under house arrest in Bulgaria awaiting trial",
       "D. Living openly in Dubai under diplomatic protection"
     ],
@@ -237,10 +237,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which fraud prevention strategy is MOST directly within the control of IT security professionals?",
     choices: [
-      "A. Reducing employee financial pressures through better compensation",
-      "B. Increasing the difficulty of committing fraud through technical controls",
-      "C. Providing therapy to reduce rationalization tendencies",
-      "D. Hiring only employees with no criminal history"
+      "A. Reducing employee financial pressure through better pay",
+      "B. Reducing fraud opportunity through stronger technical controls",
+      "C. Reducing rationalization through targeted employee therapy",
+      "D. Hiring only candidates with clean criminal records"
     ],
     correct: 1,
     explanation: "IT professionals primarily address the opportunity side of the fraud triangle by increasing the difficulty of committing fraud through technical controls like access restrictions, segregation of duties, monitoring, and logging. Financial pressures (A) and rationalization (C) are HR/management concerns, and hiring practices (D) are not technical controls.",
@@ -263,9 +263,9 @@ const QUIZ_DATA = [
     question: "In the Diann Cattani case, her fraud began with:",
     choices: [
       "A. A premeditated plan to embezzle company funds",
-      "B. Discovering a vulnerability in the company's accounting software",
-      "C. A small mistake ('wrong credit card') that was never caught, then the behavior normalized",
-      "D. Being pressured by a coworker to help cover up financial irregularities"
+      "B. Discovering a flaw in the company's accounting software",
+      "C. A small uncaught mistake that later normalized into fraud",
+      "D. Pressure from a coworker to cover up irregularities"
     ],
     correct: 2,
     explanation: "Cattani's fraud began as a slippery slope — she made a small mistake using the wrong credit card, and when it was never caught due to weak controls at her small company, the behavior normalized over time. This illustrates how weak controls create opportunity and how small ethical compromises can escalate into significant fraud.",
@@ -277,10 +277,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "An employee takes cash payments from customers and pockets them before they can be recorded in the company's accounting system. This is best described as:",
     choices: [
-      "A. Lapping",
-      "B. Skimming (occupational fraud)",
-      "C. Salami technique",
-      "D. Structuring"
+      "A. Lapping cash receipts",
+      "B. Skimming cash before entry",
+      "C. Salami technique fraud",
+      "D. Structuring cash deposits"
     ],
     correct: 1,
     explanation: "In occupational fraud, skimming refers to taking cash before it is recorded in the books — the money never appears in the accounting system. This is distinct from the ATM/card reader skimming technique. The salami technique involves tiny amounts taken from many transactions, and structuring involves breaking deposits to avoid reporting thresholds.",
@@ -348,9 +348,9 @@ const QUIZ_DATA = [
     question: "Which of the following is the BEST example of the 'denial of the victim' neutralization technique?",
     choices: [
       "A. 'I only took a small amount — they'll never notice.'",
-      "B. 'The company cheated me out of a promotion, so they had it coming.'",
-      "C. 'It wasn't my fault — the system practically invited me to do it.'",
-      "D. 'My boss does worse things every day.'"
+      "B. 'The company cheated me out of a promotion.'",
+      "C. 'It wasn't my fault — the system invited me to do it.'",
+      "D. 'My boss does worse things every day of the week.'"
     ],
     correct: 1,
     explanation: "Denial of the victim is the rationalization that the victim 'deserved it' or 'had it coming.' Option B fits this — the employee frames the company as deserving of the fraud. Option A is denial of injury ('no one got hurt'), option C is denial of responsibility ('not my fault'), and option D is condemnation of the condemners ('you're a hypocrite').",
@@ -369,9 +369,9 @@ const QUIZ_DATA = [
     question: "What is the key difference between a security 'event' and a security 'incident'?",
     choices: [
       "A. Events are always malicious; incidents may be accidental",
-      "B. Events are observable occurrences in IT infrastructure; incidents are events that disrupt or may disrupt normal service operations",
-      "C. Events happen externally; incidents happen internally",
-      "D. Events require immediate response; incidents can be investigated later"
+      "B. Events are observable occurrences; incidents disrupt normal operations",
+      "C. Events happen externally; incidents happen internally at organizations",
+      "D. Events require immediate response; incidents can wait"
     ],
     correct: 1,
     explanation: "An event is any observable occurrence in IT infrastructure (e.g., a login, a firewall alert). An incident (per ISO 27001) is an event that is NOT part of normal operations and causes or may cause disruption or reduction in service quality. All incidents are events, but not all events are incidents.",
@@ -398,9 +398,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What is the primary difference between a SOC and a CSIRT?",
     choices: [
-      "A. A SOC handles external threats; a CSIRT handles internal threats",
-      "B. A SOC performs continuous monitoring and operations; a CSIRT is invoked for major incidents requiring coordinated response",
-      "C. A SOC is staffed by managers; a CSIRT is staffed by technical personnel",
+      "A. A SOC handles external threats; a CSIRT handles internal",
+      "B. A SOC runs daily monitoring; a CSIRT convenes for major incidents",
+      "C. A SOC is staffed by managers; a CSIRT by technical personnel",
       "D. A SOC responds to incidents; a CSIRT only plans for them"
     ],
     correct: 1,
@@ -499,9 +499,9 @@ const QUIZ_DATA = [
     question: "Why is maintaining a chain of custody critical during incident response?",
     choices: [
       "A. It ensures the CSIRT follows the correct playbook",
-      "B. It ensures evidence is admissible in court and verifiable as authentic and untampered",
-      "C. It determines which manager authorized the response",
-      "D. It tracks the cost of the incident for insurance claims"
+      "B. It keeps evidence admissible and verifiable as untampered",
+      "C. It determines which manager authorized the response actions",
+      "D. It tracks the cost of the incident for insurance"
     ],
     correct: 1,
     explanation: "Chain of custody documentation tracks who had evidence, when, and where it was stored, ensuring that evidence is admissible in court and can be verified as authentic and untampered. Without proper chain of custody, even compelling digital evidence may be ruled inadmissible because its integrity cannot be proven.",
@@ -523,10 +523,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "During the eradication phase of incident response, the primary goal is to:",
     choices: [
-      "A. Identify which systems were affected",
-      "B. Disconnect compromised systems from the network",
-      "C. Remove the threat — reformat, rebuild, and restore from clean backups",
-      "D. Document lessons learned for future incidents"
+      "A. Identify which systems were affected by the threat",
+      "B. Disconnect compromised systems from the network quickly",
+      "C. Remove the threat, rebuild, and restore clean backups",
+      "D. Document lessons learned for future incident response"
     ],
     correct: 2,
     explanation: "Eradication is about removing the threat completely — reformatting systems, rebuilding them, and restoring from CLEAN backups. Identifying affected systems falls under Detection & Analysis, disconnecting systems is part of Containment, and documenting lessons learned is Post-Incident Analysis. The key word in eradication is 'clean' — backups must be verified as uncompromised.",
@@ -538,10 +538,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which of the following is NOT a recommended action during the recovery phase of incident response?",
     choices: [
-      "A. Fix vulnerabilities before putting systems back in production",
-      "B. Continue monitoring for re-compromise",
-      "C. Add indicators of compromise to IDS/IPS",
-      "D. Immediately restore all systems to production to minimize downtime"
+      "A. Fix vulnerabilities before restoring systems to production",
+      "B. Continue monitoring for signs of re-compromise",
+      "C. Add indicators of compromise to IDS/IPS rules",
+      "D. Immediately restore all systems to minimize downtime"
     ],
     correct: 3,
     explanation: "During recovery, you should fix vulnerabilities and improve defenses BEFORE putting systems back in production, continue monitoring for re-compromise, and add indicators of compromise to IDS/IPS. Immediately restoring systems without fixing the underlying vulnerabilities would likely lead to re-compromise.",
@@ -569,9 +569,9 @@ const QUIZ_DATA = [
     question: "A forensic investigator creates a bit-by-bit copy of a compromised hard drive and generates a hash of both the original and the copy. Why is the hash comparison important?",
     choices: [
       "A. To encrypt the forensic image for secure storage",
-      "B. To compress the forensic image to save storage space",
-      "C. To verify the copy is an exact replica and the original has not been altered",
-      "D. To identify which files the attacker modified"
+      "B. To compress the forensic image to save disk space",
+      "C. To verify the copy is exact and the original untouched",
+      "D. To identify which files the attacker modified recently"
     ],
     correct: 2,
     explanation: "Creating hashes of both the original and the forensic copy verifies that the copy is an exact replica and that the original has not been altered during the imaging process. This is critical for maintaining evidence integrity and chain of custody. If the hashes match, the copy is proven to be a perfect duplicate.",
@@ -583,10 +583,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "During an active intrusion, the incident response team learns that disconnecting the attacker could cause them to detonate ransomware. This risk is an example of:",
     choices: [
-      "A. Evidence spoliation",
-      "B. Containment risk — the attacker may escalate",
+      "A. Evidence spoliation by responders",
+      "B. Containment risk — attacker escalation",
       "C. Chain of custody failure",
-      "D. Post-incident oversight"
+      "D. Post-incident oversight gap"
     ],
     correct: 1,
     explanation: "This is a containment risk — specifically, the risk that containment actions may 'tip your hand' and cause the attacker to escalate (e.g., detonate ransomware, wipe data, or accelerate exfiltration). The response team must weigh the risk of the attacker's reaction against the risk of continued access.",
@@ -610,7 +610,7 @@ const QUIZ_DATA = [
     choices: [
       "A. What happened and how well did the response work?",
       "B. What disciplinary action should be taken against the attacker?",
-      "C. Were documented procedures adequate?",
+      "C. Were the team's documented procedures adequate for this?",
       "D. How can we detect similar incidents in the future?"
     ],
     correct: 1,
@@ -623,10 +623,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "According to the preparation phase of NIST 800-61, who should sponsor the CSIRT?",
     choices: [
-      "A. The IT help desk manager",
-      "B. A senior manager such as the CISO, CIO, or legal counsel",
-      "C. The organization's external auditor",
-      "D. The most technically skilled employee"
+      "A. The IT help desk manager on duty",
+      "B. A senior manager such as the CISO or CIO",
+      "C. The organization's external auditor or consultant",
+      "D. The team's most technically skilled employee"
     ],
     correct: 1,
     explanation: "Chain of command requires a clear authority structure for quick decision-making. A senior manager should sponsor the CSIRT — typically the CISO, CIO, or legal counsel — to ensure the team has the organizational authority to make critical decisions during an incident, including decisions about system shutdowns, public communications, and law enforcement involvement.",
@@ -678,10 +678,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which data source for incident detection involves analytics platforms that correlate events from multiple sources across the organization?",
     choices: [
-      "A. Anti-virus/anti-malware",
-      "B. File integrity checking",
-      "C. SIEM (Security Information and Event Management)",
-      "D. Third-party monitoring"
+      "A. Anti-virus scanning software",
+      "B. File integrity monitoring tools",
+      "C. A SIEM correlation platform",
+      "D. Third-party monitoring services"
     ],
     correct: 2,
     explanation: "SIEM (Security Information and Event Management) systems provide analytics by aggregating and correlating events from multiple data sources across the organization — logs, IDS/IPS alerts, authentication events, etc. Anti-virus checks for known malware signatures, file integrity checking uses hashing to detect unauthorized modifications, and third-party monitoring is external.",
@@ -730,9 +730,9 @@ const QUIZ_DATA = [
     question: "What is the key distinction between 'confidentiality' and 'privacy' in information security?",
     choices: [
       "A. Confidentiality protects digital data; privacy protects physical records",
-      "B. Confidentiality protects an organization's internal information; privacy protects customer/individual information",
-      "C. Confidentiality is legally required; privacy is optional",
-      "D. Confidentiality applies to classified government data; privacy applies to all other data"
+      "B. Confidentiality protects organization data; privacy protects individual data",
+      "C. Confidentiality is legally required; privacy is purely optional",
+      "D. Confidentiality covers classified data; privacy covers all else"
     ],
     correct: 1,
     explanation: "Confidentiality focuses on protecting an organization's intellectual property and internal information, while privacy deals with protecting customer/individual information — the desire of individuals to control data about themselves. This distinction is important because different legal frameworks and ethical obligations apply to each.",
@@ -791,8 +791,8 @@ const QUIZ_DATA = [
     choices: [
       "A. That the algorithm's source code be made public",
       "B. That the company delete all their financial data",
-      "C. Human review of the automated decision",
-      "D. That the company provide a different algorithm"
+      "C. Human review of the automated loan decision",
+      "D. That the company use a different algorithm"
     ],
     correct: 2,
     explanation: "The Rights Related to Automated Decision-Making allow individuals to request human review of algorithmic decisions (loan approvals, insurance, admissions). This doesn't require the company to publish their source code or change their algorithm — only to have a human review the specific decision rather than leaving it entirely to automation.",
@@ -844,9 +844,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In a dataset, if a person's combination of zip code, birth date, and gender is shared by only that one individual (K=1), this means:",
     choices: [
-      "A. The data is properly anonymized",
-      "B. The person is uniquely identifiable (re-identification risk)",
-      "C. The dataset satisfies K-anonymity requirements",
+      "A. The data is properly anonymized in storage",
+      "B. The person is uniquely identifiable via quasi-identifiers",
+      "C. The dataset satisfies K-anonymity privacy requirements",
       "D. The person has opted out of data collection"
     ],
     correct: 1,
@@ -859,8 +859,8 @@ const QUIZ_DATA = [
     type: "mc",
     question: "The CCPA (California Consumer Privacy Act) is often described as:",
     choices: [
-      "A. Stricter than GDPR in all respects",
-      "B. 'GDPR light' — a shorter rights list with an opt-out model",
+      "A. Stricter than GDPR in every meaningful respect",
+      "B. 'GDPR light' — shorter rights list, opt-out model",
       "C. Applicable only to tech companies in Silicon Valley",
       "D. A federal law that applies to all 50 states"
     ],
@@ -914,10 +914,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which GDPR right would you exercise if you want to delete your entire account and profile from a social media platform?",
     choices: [
-      "A. Right to Restrict Processing",
-      "B. Right to Rectification",
-      "C. Right to Erasure (Right to be Forgotten)",
-      "D. Right to Object"
+      "A. Right to Restrict Processing Activity",
+      "B. Right to Rectification of Data",
+      "C. Right to Erasure / Forgotten",
+      "D. Right to Object and Withdraw"
     ],
     correct: 2,
     explanation: "The Right to Erasure (Right to be Forgotten) allows individuals to request deletion of their profile/account. However, it doesn't necessarily include transaction or tax records (which may be exempt for legal requirements), and some records may be anonymized rather than fully deleted. This is distinct from the Right to Restrict Processing, which limits how data is used rather than deleting it.",
@@ -939,10 +939,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "FERPA primarily protects:",
     choices: [
-      "A. Financial records of federal employees",
-      "B. Education records such as grades and class recordings",
-      "C. Medical information in hospital databases",
-      "D. Internet browsing history of minors"
+      "A. Financial records kept by federal employees",
+      "B. Education records such as grades and recordings",
+      "C. Medical information stored in hospital databases",
+      "D. Internet browsing history of underage minors"
     ],
     correct: 1,
     explanation: "FERPA (Family Educational Rights and Privacy Act) protects education records — grades, class recordings, student information, etc. HIPAA protects medical information, and there is no single U.S. federal law broadly protecting browsing history of minors (though COPPA addresses children's online privacy differently).",
@@ -969,10 +969,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which of the following is a documented negative consequence of GDPR?",
     choices: [
-      "A. It eliminated all data breaches in the EU",
-      "B. It disproportionately hurts smaller organizations due to regressive compliance costs",
-      "C. It made EU citizens' data completely invisible to companies",
-      "D. It forced all U.S. companies to adopt GDPR standards"
+      "A. It eliminated all data breaches across the EU",
+      "B. It hurts smaller firms via regressive compliance costs",
+      "C. It made EU citizens' data invisible to companies",
+      "D. It forced all U.S. companies to adopt GDPR"
     ],
     correct: 1,
     explanation: "GDPR potentially hurts smaller organizations disproportionately because compliance costs are regressive — the same requirements apply regardless of company size, but smaller firms have fewer resources. Other impacts include ubiquitous cookie banners, some sites blocking EU access entirely, and Meta treating large fines as 'cost of doing business.'",
@@ -985,8 +985,8 @@ const QUIZ_DATA = [
     question: "Why do many global companies choose to standardize on GDPR compliance worldwide, even in countries without equivalent laws?",
     choices: [
       "A. GDPR is the only privacy law that exists globally",
-      "B. GDPR is often the strictest regulation, so complying with it satisfies most other requirements",
-      "C. The EU requires all companies to follow GDPR regardless of location",
+      "B. GDPR is strictest; compliance satisfies most other laws",
+      "C. The EU requires all companies to follow GDPR globally",
       "D. Non-GDPR countries have no privacy protections at all"
     ],
     correct: 1,
@@ -999,10 +999,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Under HIPAA, a 'covered entity' includes all of the following EXCEPT:",
     choices: [
-      "A. A health plan",
-      "B. A healthcare provider transmitting health info electronically",
-      "C. A healthcare clearinghouse",
-      "D. A social media company that hosts a health discussion forum"
+      "A. A health plan administering coverage",
+      "B. A healthcare provider transmitting info electronically",
+      "C. A healthcare clearinghouse processing claims",
+      "D. A social media company hosting a health forum"
     ],
     correct: 3,
     explanation: "HIPAA covered entities are specifically defined as health plans, healthcare providers transmitting health information electronically, and healthcare clearinghouses. A social media company hosting health discussions is not a covered entity under HIPAA, even though it may contain health-related information — it's not a plan, provider, or clearinghouse.",
@@ -1086,9 +1086,9 @@ const QUIZ_DATA = [
     question: "Jason Spaltro, Sony Pictures' CISO, infamously stated his approach to security investments was to:",
     choices: [
       "A. Invest heavily in proactive defense and threat hunting",
-      "B. Focus on investments 'absolutely required by law' and stated he would not invest $10M to avoid a possible $1M loss",
-      "C. Outsource all security operations to a managed security provider",
-      "D. Prioritize employee security training above all technical controls"
+      "B. Focus only on security investments required by law",
+      "C. Outsource all security operations to a managed provider",
+      "D. Prioritize employee training above all technical controls"
     ],
     correct: 1,
     explanation: "Spaltro focused on security investments 'absolutely required by law' and stated he would not invest $10M to avoid a possible $1M loss. While this risk-based logic could be defensible if the loss estimate were accurate, the actual harm from the breach was vastly larger — approximately half a billion dollars. This became a cautionary example of underestimating cyber risk.",
@@ -1100,9 +1100,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What was the initial delivery mechanism used by the attackers to compromise Sony Pictures?",
     choices: [
-      "A. A USB drive left in the parking lot",
-      "B. Spear-phishing emails posing as Apple ID problems leading to fake password reset pages",
-      "C. A zero-day exploit in Sony's firewall",
+      "A. A USB drive left in the company parking lot",
+      "B. Spear-phishing emails posing as Apple ID resets",
+      "C. A zero-day exploit in Sony's corporate firewall",
       "D. A compromised third-party vendor's VPN connection"
     ],
     correct: 1,
@@ -1171,7 +1171,7 @@ const QUIZ_DATA = [
     question: "The attackers set up command & control (C2) servers in Italy, Poland, and Thailand because:",
     choices: [
       "A. These countries have no cybercrime laws",
-      "B. Traffic from these locations looks normal and isn't associated with North Korea",
+      "B. Traffic looks normal and avoids North Korea attribution",
       "C. Sony had business partners in these countries",
       "D. These countries had the cheapest server hosting"
     ],
@@ -1200,10 +1200,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Who was the actual threat actor behind the Sony Pictures hack?",
     choices: [
-      "A. Anonymous",
-      "B. Guardians of Peace (an independent hacktivist group)",
-      "C. Lazarus Group (North Korean state-sponsored), operating under the name 'Guardians of Peace'",
-      "D. LulzSec"
+      "A. Anonymous hacker collective",
+      "B. Guardians of Peace (independent hacktivists)",
+      "C. Lazarus Group (North Korean state-sponsored)",
+      "D. LulzSec hacker crew"
     ],
     correct: 2,
     explanation: "The actual attackers were the Lazarus Group, a North Korean state-sponsored group. 'Guardians of Peace' was the hacktivist front name they used. The FBI issued most-wanted posters for three individuals associated with the group. LulzSec was behind the HBGary attack, and Anonymous is a decentralized collective, not the direct attacker.",
@@ -1216,9 +1216,9 @@ const QUIZ_DATA = [
     question: "The 2005 Sony BMG rootkit scandal involved:",
     choices: [
       "A. A data breach of Sony's music streaming platform",
-      "B. Malware on music CDs that auto-installed on Windows to prevent CD ripping, and which attackers later repurposed",
+      "B. A rootkit on music CDs that auto-installed on Windows",
       "C. Hackers inserting malware into Sony's digital music downloads",
-      "D. Sony using encryption to prevent unauthorized copying of Blu-ray discs"
+      "D. Sony encryption preventing unauthorized copying of Blu-rays"
     ],
     correct: 1,
     explanation: "Sony BMG placed rootkit software on music CDs that auto-installed on Windows computers to block ripping. A rootkit hides itself from the user. The critical consequence was that attackers repurposed Sony's rootkit code, making global malware worse. This was one of several incidents that established Sony's pattern of aggressive anti-piracy measures that provoked hackers.",
@@ -1230,10 +1230,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What prompted the initial targeting of Sony Pictures by North Korea?",
     choices: [
-      "A. Sony's PlayStation Network breach in 2011",
-      "B. The Interview, a comedy depicting the assassination of Kim Jong-un",
+      "A. Sony's PlayStation Network breach back in 2011",
+      "B. The Interview, a Kim Jong-un assassination comedy",
       "C. Sony's acquisition of a North Korean media company",
-      "D. Sony's refusal to pay a ransom after an earlier attack"
+      "D. Sony's refusal to pay a ransom after an attack"
     ],
     correct: 1,
     explanation: "The Interview, a Seth Rogen comedy depicting a plot to assassinate Kim Jong-un, prompted the attack. North Korea's opposition was predictable — the parallel question being 'how would the US react to a foreign film depicting the assassination of a US president?' The trailers were briefly pulled, creating a Streisand Effect.",
@@ -1256,9 +1256,9 @@ const QUIZ_DATA = [
     question: "After the hack, theaters refused to show The Interview primarily because of:",
     choices: [
       "A. Low audience interest in the film",
-      "B. Physical threats that made theater chains risk-averse, especially after the Aurora shooting",
+      "B. Physical threats against theaters after Aurora shooting",
       "C. A court order from the North Korean government",
-      "D. Sony's decision to cancel the theatrical release entirely"
+      "D. Sony's decision to cancel the theatrical release"
     ],
     correct: 1,
     explanation: "Theaters refused to show The Interview due to physical threats against theaters and moviegoers. The Aurora shooting at a Dark Knight screening made theater chains particularly risk-averse about security threats. President Obama weighed in on free speech grounds, and the film was ultimately released online with high views but weak theatrical revenue.",
@@ -1300,10 +1300,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In the exploitation stage of the Sony attack, what enabled the malware to spread across the local network?",
     choices: [
-      "A. Email forwarding rules that sent the malware to all employees",
-      "B. Social engineering (phish) combined with an SMB vulnerability that allowed the malware to worm through the network",
-      "C. A compromised DNS server that redirected all traffic to the attacker",
-      "D. Physical access to Sony's data center"
+      "A. Email forwarding rules that sent malware to all employees",
+      "B. Phishing combined with an SMB flaw that wormed through",
+      "C. A compromised DNS server redirecting traffic to attackers",
+      "D. Physical access to Sony's corporate data center"
     ],
     correct: 1,
     explanation: "The exploitation phase combined social engineering (credential harvesting from the phishing campaign) with an SMB vulnerability, creating a worm — malware that propagates automatically through the network. This is why network segmentation would have been so important; without it, the worm spread across the entire LAN.",
@@ -1355,10 +1355,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Amy Pascal and Michael Lynton's roles at Sony Pictures were, respectively:",
     choices: [
-      "A. CFO and CTO",
-      "B. Co-Chair (creative side) and Co-Chair/CEO (business/finance side)",
-      "C. CISO and CEO",
-      "D. Head of Marketing and Head of Distribution"
+      "A. CFO and CTO respectively",
+      "B. Co-Chair creative and Co-Chair/CEO business",
+      "C. CISO and CEO respectively",
+      "D. Head of Marketing and Distribution"
     ],
     correct: 1,
     explanation: "Amy Pascal was Co-Chair on the creative side (greenlights, scripts, production) and Michael Lynton was Co-Chair/CEO on the business and finance side. Pascal's leaked emails — containing racially insensitive comments about Obama and disparaging remarks about actors — caused significant PR damage beyond the data breach itself.",
@@ -1407,7 +1407,7 @@ const QUIZ_DATA = [
     question: "Kerckhoffs's Principle states that:",
     choices: [
       "A. A cipher must use a proprietary algorithm to be secure",
-      "B. A cryptosystem should be secure even if everything about the system, except the key, is public knowledge",
+      "B. Security should rest in the key, not algorithm secrecy",
       "C. Longer keys are always more secure than shorter keys",
       "D. Symmetric encryption is always stronger than asymmetric encryption"
     ],
@@ -1476,10 +1476,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What makes the Vigenere cipher stronger than the Caesar cipher against frequency analysis?",
     choices: [
-      "A. It uses a longer alphabet",
-      "B. It uses polyalphabetic substitution with a repeating keyword, so each letter can encrypt differently",
+      "A. It uses a much longer extended alphabet",
+      "B. Polyalphabetic substitution so each letter shifts differently",
       "C. It rearranges letters rather than substituting them",
-      "D. It uses a random key for each message"
+      "D. It uses a different random key for every message"
     ],
     correct: 1,
     explanation: "The Vigenere cipher uses polyalphabetic substitution — each letter of the repeating keyword shifts the corresponding plaintext letter by a different amount using the tabula recta. This means the same plaintext letter can encrypt to different ciphertext letters depending on its position relative to the key, making frequency analysis much harder.",
@@ -1521,10 +1521,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Cloudflare uses lava lamps as a source of randomness for cryptographic purposes. This addresses the need for:",
     choices: [
-      "A. Faster encryption processing",
-      "B. Truly random numbers, which are difficult to generate computationally",
-      "C. Larger key sizes",
-      "D. Quantum-resistant algorithms"
+      "A. Faster encryption processing on Cloudflare servers",
+      "B. Truly random numbers for cryptographic operations",
+      "C. Larger key sizes for better security margins",
+      "D. Quantum-resistant encryption algorithms for post-quantum"
     ],
     correct: 1,
     explanation: "Truly random numbers are extremely difficult to generate computationally. Sources of true randomness include atmospheric noise (random.org), radioactive decay (HotBits), and Cloudflare's LavaRand (lava lamps). CSPRNGs use encryption with seeds and hardware entropy, but the standard random() function in most languages is NOT cryptographically secure.",
@@ -1536,10 +1536,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "The One-Time Pad (OTP) is proven perfectly secure under which conditions?",
     choices: [
-      "A. The pad is at least 128 bits long and changed monthly",
-      "B. The pad is truly random, used only once, and at least as long as the message",
-      "C. The pad is generated by a CSPRNG and shared via secure email",
-      "D. The pad uses AES-256 encryption internally"
+      "A. The pad is at least 128 bits and changed monthly",
+      "B. The pad is truly random, used once, and long enough",
+      "C. The pad is generated by a CSPRNG and shared securely",
+      "D. The pad uses AES-256 encryption internally for keys"
     ],
     correct: 1,
     explanation: "Claude Shannon proved the OTP is perfectly secure when: (1) the pad is truly random (very difficult), (2) used only once, and (3) at least as long as the message. If any condition is violated, security is lost. The OTP is impractical for most uses due to key distribution and length requirements.",
@@ -1577,9 +1577,9 @@ const QUIZ_DATA = [
     question: "What vulnerability does Diffie-Hellman have when used alone (without additional authentication)?",
     choices: [
       "A. It can only exchange keys shorter than 128 bits",
-      "B. It is vulnerable to man-in-the-middle attacks because there is no authentication of the parties",
-      "C. It requires a pre-shared secret to function",
-      "D. It only works on local networks, not over the internet"
+      "B. Vulnerable to man-in-the-middle due to missing authentication",
+      "C. It requires a pre-shared secret to function properly",
+      "D. It only works on local networks, not over internet"
     ],
     correct: 1,
     explanation: "DH alone provides no authentication — you don't know if you're actually exchanging keys with Bob or with an attacker (Mallory) in the middle. A man-in-the-middle can perform separate DH exchanges with both parties, intercepting and relaying all communication. DH must be combined with authentication (certificates, signatures) for security.",
@@ -1766,10 +1766,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What is the primary limitation of a MAC (Message Authentication Code) compared to a digital signature?",
     choices: [
-      "A. MACs are slower to compute",
-      "B. MACs cannot provide integrity",
-      "C. You can't publish a single MAC for everyone — it's per-sender/per-key, so it doesn't provide non-repudiation",
-      "D. MACs require asymmetric encryption"
+      "A. MACs are much slower to compute than signatures",
+      "B. MACs cannot provide any message integrity protection",
+      "C. MACs use shared keys, so they lack non-repudiation",
+      "D. MACs require asymmetric encryption and certificate authorities"
     ],
     correct: 2,
     explanation: "A MAC uses a shared symmetric key, so anyone with the key can generate valid MACs. You can't prove WHO sent the message since multiple parties share the key — meaning no non-repudiation. Digital signatures use a private key that only the signer holds, and anyone can verify with the public key, providing both authenticity and non-repudiation.",
@@ -1781,10 +1781,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "A digital signature is created by:",
     choices: [
-      "A. Encrypting the entire message with the sender's public key",
-      "B. Hashing the message and then encrypting the hash with the sender's private key",
-      "C. Encrypting the message with the recipient's public key and appending a timestamp",
-      "D. Hashing the message and then encrypting the hash with the recipient's public key"
+      "A. Encrypting the whole message with the sender's own public key",
+      "B. Hashing the message and encrypting the hash with sender's private key",
+      "C. Encrypting the message with the recipient's public key plus timestamp",
+      "D. Hashing the message and encrypting the hash with recipient's public key"
     ],
     correct: 1,
     explanation: "'A digital signature is a hash of a message encrypted with the sender's PRIVATE key.' The sender hashes the message, then encrypts that hash with their private key. The recipient independently hashes the received message, decrypts the signature with the sender's PUBLIC key, and compares — if they match, integrity and authenticity are confirmed.",
@@ -1812,8 +1812,8 @@ const QUIZ_DATA = [
     question: "When your operating system verifies an update from Microsoft, it uses the vendor's built-in public key to:",
     choices: [
       "A. Decrypt the update file so it can be installed",
-      "B. Verify the digital signature to prove the update is authentic and complete",
-      "C. Establish an encrypted connection to Microsoft's servers",
+      "B. Verify the digital signature to prove authenticity",
+      "C. Establish an encrypted connection to Microsoft's update servers",
       "D. Generate a hash of the update for future comparison"
     ],
     correct: 1,
@@ -1826,9 +1826,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What is a digital certificate?",
     choices: [
-      "A. A password stored in encrypted format",
-      "B. An electronic document that links a public key to an individual or organization",
-      "C. A hash of a website's content used for integrity checking",
+      "A. A password stored in encrypted hash format",
+      "B. A document linking a public key to an identity",
+      "C. A hash of a website's content for integrity",
       "D. A symmetric key used for SSL/TLS encryption"
     ],
     correct: 1,
@@ -1841,9 +1841,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In the CA (Certificate Authority) trust model, your browser trusts a website's certificate because:",
     choices: [
-      "A. The website generates its own trusted certificate",
-      "B. Your browser/OS ships with a list of trusted CAs, and the website's certificate is signed by one of them",
-      "C. Multiple peers have signed the certificate at key-signing parties",
+      "A. The website generates and signs its own certificate",
+      "B. Your browser trusts a CA that signed the certificate",
+      "C. Multiple peers have signed it at key-signing parties",
       "D. The government mandates which certificates are valid"
     ],
     correct: 1,
@@ -1856,9 +1856,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "OCSP Stapling is a technique where:",
     choices: [
-      "A. The browser queries the CA about certificate validity in real-time",
-      "B. The server includes a short-lived, CA-signed statement that its certificate is still valid",
-      "C. The browser downloads a Certificate Revocation List weekly",
+      "A. The browser queries the CA about validity in real-time",
+      "B. The server staples a CA-signed statement of validity",
+      "C. The browser downloads the Certificate Revocation List weekly",
       "D. The CA pushes certificate updates directly to all browsers"
     ],
     correct: 1,
@@ -1881,10 +1881,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "A concern about using a VPN provider is that:",
     choices: [
-      "A. VPNs cannot encrypt data in transit",
-      "B. You shift trust from your ISP to the VPN provider, who may keep logs",
-      "C. VPNs only work with HTTPS websites",
-      "D. VPNs are illegal in most countries"
+      "A. VPNs cannot actually encrypt data in transit",
+      "B. You shift trust from ISP to VPN provider",
+      "C. VPNs only work on HTTPS-protected web pages",
+      "D. VPNs are illegal in most countries worldwide"
     ],
     correct: 1,
     explanation: "With a VPN, you're shifting trust from your ISP to the VPN provider. The VPN creates an encrypted tunnel, but the VPN provider can potentially see your traffic and may keep logs. Your trust shifts — you're trusting the VPN provider's privacy policy instead of your ISP's.",
@@ -1911,10 +1911,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Tor (The Onion Router) primarily provides:",
     choices: [
-      "A. Guaranteed confidentiality of data contents",
-      "B. Anonymity by routing through layers of encryption across relays",
+      "A. Guaranteed confidentiality of all data contents",
+      "B. Anonymity via layered encryption across relays",
       "C. Faster internet speeds through distributed routing",
-      "D. Antivirus protection against malware"
+      "D. Antivirus protection against malware and phishing"
     ],
     correct: 1,
     explanation: "Tor's purpose is ANONYMITY, not guaranteed confidentiality. It works by layering encryption through successive relays (entry/guard node → middle relay → exit relay), each stripping one layer. The exit relay can see plain HTTP traffic (but not HTTPS content). Tor is slower than direct connections, not faster.",
@@ -1936,10 +1936,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Steganography using the Least Significant Bit (LSB) technique works by:",
     choices: [
-      "A. Encrypting an image file with AES-256",
-      "B. Hiding data in the least significant bit of each pixel's color channel, imperceptible to the human eye",
+      "A. Encrypting an entire image file with AES-256",
+      "B. Hiding data in each pixel's least significant bit",
       "C. Compressing a file inside another file's metadata",
-      "D. Embedding data in the filename of an image"
+      "D. Embedding hidden data into the filename of an image"
     ],
     correct: 1,
     explanation: "LSB steganography conceals data within the least significant bit of image pixels per color channel. The change is imperceptible to the human eye but can be detected with analysis tools. Best practice is to encrypt the hidden payload (e.g., with AES) before embedding, so even if detected, the content can't be read.",
@@ -1966,10 +1966,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Shor's algorithm threatens which types of cryptographic systems?",
     choices: [
-      "A. Only symmetric ciphers like AES",
-      "B. Only hash functions like SHA-256",
-      "C. RSA, DH, and ECC — all asymmetric systems based on factorization or discrete log",
-      "D. All cryptographic systems equally"
+      "A. Only symmetric ciphers like AES-256 and ChaCha20",
+      "B. Only hash functions like SHA-256 and SHA-3",
+      "C. RSA, DH, and ECC — the asymmetric systems",
+      "D. All cryptographic systems are affected equally"
     ],
     correct: 2,
     explanation: "Shor's algorithm makes factorization and discrete logarithm easy for quantum computers, which would 'irrevocably break' RSA, DH, and ECC — they 'must be replaced.' Grover's algorithm affects symmetric ciphers but only gives a quadratic speedup, meaning AES just needs double the key size (AES-256 instead of AES-128) but remains fundamentally sound.",
@@ -1982,9 +1982,9 @@ const QUIZ_DATA = [
     question: "The 'harvest now, decrypt later' threat refers to:",
     choices: [
       "A. Attackers stealing encryption keys and using them immediately",
-      "B. Adversaries recording encrypted traffic today to decrypt when quantum computers become available",
-      "C. Companies collecting user data now to analyze with future AI tools",
-      "D. Using rainbow tables to crack passwords stored for later analysis"
+      "B. Storing encrypted traffic now to decrypt with future quantum",
+      "C. Companies collecting user data now for future AI analysis",
+      "D. Using rainbow tables to crack passwords stored for analysis"
     ],
     correct: 1,
     explanation: "'Harvest now, decrypt later' describes adversaries recording encrypted traffic today with the expectation that quantum computers will eventually allow them to decrypt it. This is why post-quantum cryptography is urgent even before practical quantum computers exist — sensitive data encrypted today could be vulnerable in the future.",
@@ -2011,10 +2011,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What does 'forward secrecy' (using ephemeral DH keys) protect against?",
     choices: [
-      "A. Brute-force attacks on the current session",
-      "B. SQL injection attacks",
-      "C. If a long-term key is later compromised, past sessions remain safe because each session used a unique key",
-      "D. Denial-of-service attacks"
+      "A. Brute-force attacks on the current TLS session",
+      "B. SQL injection attacks against authentication servers",
+      "C. Past sessions compromised if long-term key leaks",
+      "D. Denial-of-service attacks against the web server"
     ],
     correct: 2,
     explanation: "Forward secrecy / Ephemeral DH uses a new DH key per session, so if a long-term key is later compromised, past sessions remain safe — each session's key is unique and not derivable from the compromised long-term key. This thwarts adversaries who 'harvest now, decrypt later.'",
@@ -2041,10 +2041,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which statement about symmetric vs. asymmetric encryption is correct?",
     choices: [
-      "A. Symmetric encryption uses key pairs; asymmetric uses a single shared key",
-      "B. Symmetric is faster and used for bulk data; asymmetric is slower and used for key exchange and signatures",
-      "C. Symmetric encryption provides non-repudiation; asymmetric does not",
-      "D. Asymmetric encryption is always preferred because it's more secure"
+      "A. Symmetric uses key pairs; asymmetric uses a shared key",
+      "B. Symmetric is fast for bulk; asymmetric for key exchange",
+      "C. Symmetric provides non-repudiation while asymmetric does not",
+      "D. Asymmetric encryption is always preferred for its strength"
     ],
     correct: 1,
     explanation: "Symmetric encryption uses a single shared key (two copies), is fast, and is used for bulk data encryption (AES, ChaCha20). Asymmetric uses a key pair (public + private), is slower, and is used for key exchange, signatures, and certificates (RSA, ECC, DH). Modern systems typically use asymmetric for key exchange, then symmetric for data.",
@@ -2057,9 +2057,9 @@ const QUIZ_DATA = [
     question: "A stream cipher encrypts data _____, while a block cipher encrypts _____.",
     choices: [
       "A. in fixed-size chunks; bit-by-bit or byte-by-byte",
-      "B. bit-by-bit or byte-by-byte; in fixed-size chunks (e.g., 128-bit blocks)",
+      "B. bit-by-bit or byte-by-byte; in fixed-size 128-bit blocks",
       "C. using asymmetric keys; using symmetric keys",
-      "D. stored data; live/streaming data"
+      "D. stored disk data; live or streaming data"
     ],
     correct: 1,
     explanation: "Stream ciphers encrypt bit-by-bit or byte-by-byte (best for live/streaming data like A/V), while block ciphers encrypt fixed-size chunks (e.g., AES uses 128-bit blocks, best for stored data and large payloads). Examples: stream = RC4 (legacy), ChaCha20; block = AES, DES.",
@@ -2071,10 +2071,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In the Enigma machine, what key weakness did operators introduce that helped cryptanalysts break the system?",
     choices: [
-      "A. The machine used too few rotors",
-      "B. Operators used non-random daily indicators (e.g., 'Heil Hitler,' women's names)",
-      "C. The reflector was removable and often lost",
-      "D. The plugboard settings were published daily"
+      "A. The machine used too few rotors internally",
+      "B. Operators used predictable indicators like 'Heil Hitler'",
+      "C. The reflector was removable and often lost in transit",
+      "D. The plugboard settings were published daily in newspapers"
     ],
     correct: 1,
     explanation: "While the Enigma machine itself was sophisticated (rotors, reflector, plugboard, daily key sheets), operators introduced weakness by using non-random daily indicators — predictable phrases like 'Heil Hitler' or women's names. This human weakness allowed Polish mathematician Marian Rejewski and later Alan Turing to make progress in breaking the system.",
@@ -2096,10 +2096,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In blockchain technology, a Merkle root is:",
     choices: [
-      "A. The first transaction in a block",
+      "A. The first transaction entered in a block",
       "B. The hash of the previous block's header",
-      "C. A hash of hashes of all transactions in a block — any change to any transaction breaks it",
-      "D. The mining reward for the block"
+      "C. A recursive hash of all transactions in the block",
+      "D. The mining reward paid out for the block"
     ],
     correct: 2,
     explanation: "A Merkle root is a hash of hashes of all transactions in a block. Because it's a recursive hash structure, any change to any individual transaction would change its hash, which would propagate up and change the Merkle root. This provides efficient integrity verification for the entire block of transactions.",
@@ -2136,10 +2136,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Grover's algorithm affects symmetric cryptography by:",
     choices: [
-      "A. Completely breaking all symmetric ciphers",
-      "B. Providing a quadratic speedup for key search, requiring double the key size (e.g., AES-256 instead of AES-128)",
-      "C. Making symmetric encryption stronger",
-      "D. Having no effect on symmetric cryptography"
+      "A. Completely breaking all symmetric ciphers fundamentally",
+      "B. Quadratic speedup requiring doubled symmetric key sizes",
+      "C. Making symmetric encryption stronger against attacks",
+      "D. Having no effect on symmetric cryptography whatsoever"
     ],
     correct: 1,
     explanation: "Grover's algorithm provides a quadratic speedup for symmetric key search on quantum computers. This means AES needs double the key size to maintain security — AES-256 instead of AES-128 — but AES remains fundamentally sound. This is much less severe than Shor's algorithm, which 'irrevocably breaks' RSA, DH, and ECC.",
@@ -2152,9 +2152,9 @@ const QUIZ_DATA = [
     question: "Which statement about .onion addresses is correct?",
     choices: [
       "A. They are assigned by ICANN like regular domain names",
-      "B. They are approximately SHA-256 hashes of the service's public key, with vanity prefixes possible via brute force",
-      "C. They can only be accessed by government agencies",
-      "D. They use IPv6 addresses encoded in hexadecimal"
+      "B. They are SHA-256 hashes of the service's public key",
+      "C. They can only be accessed by official government agencies",
+      "D. They use IPv6 addresses encoded in hexadecimal form"
     ],
     correct: 1,
     explanation: ".onion addresses are approximately SHA-256 hashes of the service's public key. They aren't registered through DNS or ICANN. Vanity prefixes (like 'facebook' in facebookcorewwwi.onion) are generated by brute-forcing key pairs until the hash starts with the desired prefix. Legitimate .onion sites include BBC, CIA, Reddit, and ProtonMail.",
@@ -2172,10 +2172,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In the story from Judges 12:5-6, the Gileadites used the pronunciation of 'Shibboleth' to identify Ephraimites. In modern security, a 'shibboleth' refers to:",
     choices: [
-      "A. A type of encryption algorithm",
-      "B. A peculiarity of pronunciation, behavior, or appearance that distinguishes a particular group",
+      "A. A type of encryption algorithm system",
+      "B. A peculiarity that distinguishes a particular group",
       "C. A firewall rule for network access control",
-      "D. A multi-factor authentication token"
+      "D. A multi-factor authentication hardware token"
     ],
     correct: 1,
     explanation: "A shibboleth is 'a peculiarity of pronunciation, behavior, mode of dress, etc., that distinguishes a particular class or set of persons.' Modern examples include local place-name pronunciations (like 'Wollochet Bay') or cultural references that outsiders wouldn't know. The biblical story resulted in 42,000 Ephraimites being killed for failing the pronunciation test.",
@@ -2202,10 +2202,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What is the primary security risk of Single Sign-On (SSO)?",
     choices: [
-      "A. Users must remember multiple passwords",
-      "B. Session compromise opens access to many systems simultaneously",
-      "C. It only works within a single application",
-      "D. It requires biometric authentication"
+      "A. Users must remember many different passwords",
+      "B. Session compromise grants access to many systems",
+      "C. It only works within a single application silo",
+      "D. It requires expensive biometric authentication hardware"
     ],
     correct: 1,
     explanation: "SSO means one login grants access to many applications (e.g., BYU CAS). The risk is that if a session is compromised (stolen session token, credential theft), the attacker gains access to ALL connected systems simultaneously rather than just one. The convenience of SSO comes with this concentration-of-risk trade-off.",
@@ -2234,7 +2234,7 @@ const QUIZ_DATA = [
     choices: [
       "A. OAuth",
       "B. SAML",
-      "C. CAS (Central Authentication Service)",
+      "C. CAS",
       "D. LDAP"
     ],
     correct: 2,
@@ -2249,7 +2249,7 @@ const QUIZ_DATA = [
     choices: [
       "A. Something you know",
       "B. Something you have",
-      "C. Something you are (biometrics)",
+      "C. Something you are",
       "D. Something you do"
     ],
     correct: 2,
@@ -2263,9 +2263,9 @@ const QUIZ_DATA = [
     question: "According to current NIST and Microsoft guidance, what is the MOST important characteristic of a strong password?",
     choices: [
       "A. Including uppercase, lowercase, numbers, and special characters",
-      "B. Changing it every 30 days",
-      "C. Length and non-reuse",
-      "D. Using a common word with number substitutions (e.g., P@ssw0rd)"
+      "B. Changing the password every 30 days",
+      "C. Length and non-reuse across sites",
+      "D. Using a common word with number substitutions"
     ],
     correct: 2,
     explanation: "LENGTH and NON-REUSE are the most important password characteristics. NIST and Microsoft guidance now favors length over complexity. Complex rules produce passwords that are hard to remember but not necessarily secure, while length increases difficulty exponentially. Frequent forced changes lead to predictable patterns (Password1! → Password2!).",
@@ -2278,9 +2278,9 @@ const QUIZ_DATA = [
     question: "The XKCD password comic illustrates that:",
     choices: [
       "A. Four random common words are always the best password",
-      "B. Complex character rules produce passwords that are hard to remember but not long enough; length matters exponentially while extra symbols help only linearly",
+      "B. Length matters exponentially; symbol rules help only linearly",
       "C. Passwords should always be 8 characters with mixed case",
-      "D. Password managers are unnecessary if you use the XKCD method"
+      "D. Password managers are unnecessary when using the XKCD method"
     ],
     correct: 1,
     explanation: "The XKCD model shows that complex rules produce hard-to-remember passwords that aren't as secure as longer ones. Length increases cracking difficulty EXPONENTIALLY; extra symbol rules help only LINEARLY. The best practice is to 'turn off the requirements for uppercase and lowercase and numbers and symbols and just require length.' Note: 'correct horse battery staple' itself is now in cracking dictionaries.",
@@ -2293,9 +2293,9 @@ const QUIZ_DATA = [
     question: "Rainbow tables are a password cracking method that:",
     choices: [
       "A. Use brute force to try every possible combination in real-time",
-      "B. Trade storage for processing by using precomputed hash databases",
+      "B. Trade storage for processing via precomputed hash databases",
       "C. Exploit social engineering to trick users into revealing passwords",
-      "D. Intercept passwords during network transmission"
+      "D. Intercept passwords during transmission on unsecured networks"
     ],
     correct: 1,
     explanation: "Rainbow tables are precomputed hash databases — they 'trade storage for processing.' Instead of computing hashes in real-time, attackers look up a hash in a massive pre-built database. Short passwords (~7-8 chars) are feasible to crack this way; longer passwords push storage requirements to petabytes/exabytes. Salt defeats rainbow tables.",
@@ -2309,7 +2309,7 @@ const QUIZ_DATA = [
     choices: [
       "A. To make the hash longer and more secure",
       "B. To encrypt the password before storing it",
-      "C. To destroy rainbow tables by ensuring each user's hash is unique even if passwords are identical",
+      "C. To defeat rainbow tables by making every hash unique",
       "D. To keep the salt secret from attackers"
     ],
     correct: 2,
@@ -2333,9 +2333,9 @@ const QUIZ_DATA = [
     question: "In the Django password storage format `pbkdf2_sha256$20000$H0dPx8NeajVu$GiC4k5kqbbR...`, the '20000' represents:",
     choices: [
       "A. The length of the hash in bits",
-      "B. The number of iterations (key stretching)",
-      "C. The user's ID number",
-      "D. The salt length in characters"
+      "B. The number of iterations for key stretching",
+      "C. The user's ID number for database lookups",
+      "D. The salt length measured in characters"
     ],
     correct: 1,
     explanation: "The format is algorithm$iterations$salt$hash. The 20000 represents iterations — the number of times the password is hashed. This key stretching creates a negligible delay for one legitimate login but makes offline cracking '20,000 times worse.' Combined with salt, this is the recommended approach for password storage.",
@@ -2347,10 +2347,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which password storage method represents the BEST practice?",
     choices: [
-      "A. Clear text",
-      "B. Hashed only",
-      "C. Hashed + salt",
-      "D. Hashed + salt + iterations"
+      "A. Plaintext storage in database",
+      "B. Hashed only without a salt",
+      "C. Hashed with a random salt",
+      "D. Hashed, salted, and stretched"
     ],
     correct: 3,
     explanation: "The hierarchy from worst to best is: (1) clear text (never do this), (2) hashed, (3) hashed + salt, (4) hashed + salt + iterations (best practice). Purpose-built password hashing algorithms like bcrypt, PBKDF2, and Argon2 implement all of these — they're designed to be slow/adaptable, unlike fast algorithms like SHA-256.",
@@ -2362,10 +2362,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Password managers are described as 'the best tool we have for stopping phishing attacks' because:",
     choices: [
-      "A. They use stronger encryption than web browsers",
-      "B. They won't autofill credentials on the wrong domain, protecting against fake login pages",
-      "C. They generate passwords that are too long to type manually",
-      "D. They block access to known phishing websites"
+      "A. They use stronger encryption than web browsers alone",
+      "B. They refuse to autofill credentials on the wrong domain",
+      "C. They generate passwords too long to type manually",
+      "D. They actively block access to known phishing websites"
     ],
     correct: 1,
     explanation: "Password managers won't autofill on the wrong domain — if you're on a phishing site that looks like your bank but has a different URL, the password manager won't offer your bank credentials. This makes them the best phishing defense. They also provide both better security AND better convenience, which is rare for security tools.",
@@ -2389,8 +2389,8 @@ const QUIZ_DATA = [
     choices: [
       "A. FIDO2/WebAuthn security keys",
       "B. Push notifications with number matching",
-      "C. TOTP (Time-based One-Time Password) apps",
-      "D. SMS codes"
+      "C. TOTP authenticator applications",
+      "D. Plain SMS text codes"
     ],
     correct: 3,
     explanation: "SMS codes are the weakest MFA method because they can be intercepted through SIM swapping or network vulnerabilities. From weakest to strongest: SMS codes → TOTP apps → Push notifications (especially with number matching) → FIDO2/WebAuthn security keys (phishing-resistant because they use asymmetric encryption challenges).",
@@ -2402,9 +2402,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "FIDO2/WebAuthn passkeys are considered phishing-resistant because:",
     choices: [
-      "A. They require the user to type a long password each time",
-      "B. They use an asymmetric encryption challenge — Face ID/fingerprint unlocks the passkey, not the crypto itself",
-      "C. They are stored on the server and can't be copied",
+      "A. They require typing a long password each time",
+      "B. They use an asymmetric challenge bound to the domain",
+      "C. They are stored on the server and cannot be copied",
       "D. They change every 60 seconds like TOTP codes"
     ],
     correct: 1,
@@ -2417,10 +2417,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "A bank ATM card requires both inserting the card (possession) and entering a PIN (knowledge). Even though both factors are individually weak, this is an example of:",
     choices: [
-      "A. Single-factor authentication with redundancy",
-      "B. Multi-factor authentication — combining different factor categories",
-      "C. Biometric authentication",
-      "D. Token-based authentication only"
+      "A. Single-factor authentication with built-in redundancy",
+      "B. Multi-factor authentication combining different categories",
+      "C. Biometric-only authentication methods",
+      "D. Token-based possession authentication only"
     ],
     correct: 1,
     explanation: "A magnetic card is weak. A 4-digit PIN is weak. But card + PIN together is 'still terrible, but not nearly as terrible' — the combination across DIFFERENT factor categories (something you have + something you know) is the point of MFA. The security comes from requiring compromise of both factors, not from either factor's individual strength.",
@@ -2432,10 +2432,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "In RBAC (Role-Based Access Control), permissions are assigned to:",
     choices: [
-      "A. Individual users directly",
-      "B. Roles, and users are then assigned to roles",
+      "A. Individual users directly by the administrator",
+      "B. Roles, with users assigned to roles",
       "C. Network segments based on IP address",
-      "D. Time-of-day access windows"
+      "D. Time-of-day access windows per shift"
     ],
     correct: 1,
     explanation: "In RBAC, permissions are assigned to roles (e.g., 'manager,' 'analyst,' 'admin'), and users are then assigned to appropriate roles. This simplifies administration — when an employee changes position, you change their role assignment rather than modifying individual permissions. RBAC types include Flat, Hierarchical, Constrained, and Symmetric.",
@@ -2448,9 +2448,9 @@ const QUIZ_DATA = [
     question: "ABAC (Attribute-Based Access Control) makes access decisions based on:",
     choices: [
       "A. Only the user's role in the organization",
-      "B. Attributes of the user, resource, and environment, evaluated by policies",
-      "C. Only the file's classification level",
-      "D. Only the time of day and location"
+      "B. Attributes of user, resource, and environment via policies",
+      "C. Only the file's classification level within systems",
+      "D. Only the time of day and user location"
     ],
     correct: 1,
     explanation: "ABAC uses policies based on multiple attributes — user attributes (department, clearance), resource attributes (classification, type), and environment attributes (time, location, network). It's commonly implemented with XACML or ALFA and includes Policy Enforcement Point (PEP), Policy Decision Point (PDP), Policy Administration Point (PAP), and Policy Information Point (PIP).",
@@ -2462,9 +2462,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "A disadvantage of biometric authentication is that:",
     choices: [
-      "A. It is too easy to share with others",
+      "A. It is too easy to share with other people",
       "B. It is impossible to implement on mobile devices",
-      "C. If compromised, the biometric cannot be changed (unlike a password)",
+      "C. Biometrics cannot be changed if compromised",
       "D. It requires an internet connection to verify"
     ],
     correct: 2,
@@ -2517,10 +2517,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Federated Identity differs from SSO in that:",
     choices: [
-      "A. Federated identity uses passwords while SSO uses biometrics",
-      "B. SSO is within one organization; federated identity uses a third-party identity (Google, GitHub) across organizations",
-      "C. SSO is more secure than federated identity",
-      "D. Federated identity doesn't require authentication"
+      "A. Federated uses passwords while SSO uses biometrics",
+      "B. SSO is within one org; federated spans organizations",
+      "C. SSO is always more secure than federated identity",
+      "D. Federated identity doesn't require any authentication steps"
     ],
     correct: 1,
     explanation: "SSO operates within a single organization — one login grants access to many internal applications (like BYU CAS for BYU services). Federated identity extends across organizations — your identity from a third party (Google, GitHub) travels to other organizations' apps. 'Sign in with Google' on a non-Google site is federated identity.",
@@ -2532,10 +2532,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "SAML (Security Assertion Markup Language) is used to:",
     choices: [
-      "A. Encrypt password databases",
-      "B. Exchange authentication information between systems (e.g., telling an app that a user is authenticated after CAS login)",
-      "C. Generate one-time passwords for MFA",
-      "D. Store biometric templates securely"
+      "A. Encrypt password databases in storage",
+      "B. Exchange authentication info between federated systems",
+      "C. Generate one-time passwords for MFA login",
+      "D. Store biometric templates securely in vaults"
     ],
     correct: 1,
     explanation: "SAML is a standard for exchanging authentication and authorization information between an identity provider and a service provider. For example, after logging in via BYU CAS, SAML assertions tell other BYU applications that you've been authenticated, including attributes about your identity and what you're authorized to access.",
@@ -2562,10 +2562,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "The real threat in password cracking is:",
     choices: [
-      "A. Online attacks against login pages",
-      "B. Offline attacks on a stolen hash database, where attackers can crack at leisure",
-      "C. Shoulder surfing in public places",
-      "D. Social engineering over the phone"
+      "A. Online attacks against public login pages",
+      "B. Offline attacks on a stolen hash database",
+      "C. Shoulder surfing people in public places",
+      "D. Social engineering attacks over the phone"
     ],
     correct: 1,
     explanation: "Offline attacks — where the attacker has stolen a hash database and can crack at leisure with no rate limits or lockouts — are the real threat. Online attacks face rate limits and lockouts (e.g., iPhone wipes after 10 wrong attempts). Offline cracking has no such restrictions, which is why salting, iterations, and slow hashing algorithms are critical.",
@@ -2587,10 +2587,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Which of the following is a disadvantage of the 'something you know' authentication factor?",
     choices: [
-      "A. It can't be changed if compromised",
+      "A. It cannot be changed if compromised",
       "B. It can be lost or stolen physically",
-      "C. It's forgettable, guessable, and reusable across sites",
-      "D. It requires expensive hardware"
+      "C. It's forgettable, guessable, and often reused",
+      "D. It requires expensive hardware to function"
     ],
     correct: 2,
     explanation: "Knowledge factors (passwords, PINs, security questions) are forgettable, guessable, and often reused across sites. Option A describes biometrics (can't be changed). Option B describes possession factors (can be lost/stolen). Option D also relates to biometrics or hardware tokens. Password reuse is particularly dangerous, as demonstrated in the HBGary hack.",
@@ -2609,7 +2609,7 @@ const QUIZ_DATA = [
     question: "What action by Aaron Barr provoked the attack on HBGary Federal?",
     choices: [
       "A. He hacked into Anonymous's communication channels",
-      "B. He publicly claimed he could unmask Anonymous members and planned to share their names with the FBI",
+      "B. He claimed he could unmask Anonymous members publicly",
       "C. He reported a vulnerability in Anonymous's website",
       "D. He refused to hire former Anonymous members"
     ],
@@ -2623,10 +2623,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Who actually attacked HBGary Federal?",
     choices: [
-      "A. Anonymous as a coordinated organization",
-      "B. LulzSec (Lulz Security), a core group of approximately 7 people",
+      "A. Anonymous operating as a coordinated organization",
+      "B. LulzSec — a core group of about 7",
       "C. Lazarus Group (North Korean state-sponsored)",
-      "D. Guardians of Peace"
+      "D. Guardians of Peace hacktivist collective"
     ],
     correct: 1,
     explanation: "The actual attackers were LulzSec (Lulz Security), a core group of approximately 7 people who did it 'for the lulz' (laughs). They were NOT 'Anonymous' as an organized group — LulzSec was a small, skilled subset. After HBGary, they went on '100 days of lulz' targeting Fox, PBS, Sony, the US Senate, and the CIA.",
@@ -2638,9 +2638,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "The initial attack vector used against HBGary Federal was:",
     choices: [
-      "A. A phishing email targeting Aaron Barr",
-      "B. A zero-day exploit in their VPN",
-      "C. SQL injection on a custom CMS — described as 'the most bare-bones SQL injection'",
+      "A. A phishing email targeting Aaron Barr directly",
+      "B. A zero-day exploit in their corporate VPN",
+      "C. Basic SQL injection on their custom CMS",
       "D. A brute-force attack on their SSH server"
     ],
     correct: 2,
@@ -2653,8 +2653,8 @@ const QUIZ_DATA = [
     type: "mc",
     question: "After obtaining the HBGary user database via SQL injection, the attackers were able to crack the passwords easily because:",
     choices: [
-      "A. The passwords were stored in cleartext",
-      "B. The passwords were hashed with MD5 and no salt, making rainbow table attacks trivial",
+      "A. The passwords were stored in plain cleartext format",
+      "B. The passwords were MD5-hashed with no salt applied",
       "C. The passwords were encrypted with a weak symmetric key",
       "D. The database used base64 encoding instead of hashing"
     ],
@@ -2668,10 +2668,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "How did the attackers gain access to Aaron Barr's email account?",
     choices: [
-      "A. They guessed his security questions",
-      "B. They used a zero-day exploit in Gmail",
-      "C. He reused the same password across multiple services, including his cracked HBGary password",
-      "D. They intercepted his password via a man-in-the-middle attack"
+      "A. They guessed his security questions correctly",
+      "B. They used a zero-day exploit against Gmail",
+      "C. He reused his cracked password across services",
+      "D. They intercepted it via a man-in-the-middle attack"
     ],
     correct: 2,
     explanation: "Aaron Barr used the same password across multiple services. After cracking his HBGary password (MD5, no salt → rainbow tables), the attackers simply tried it on his email accounts — and it worked. This is a textbook example of why password reuse is dangerous, especially for someone in the security industry.",
@@ -2683,10 +2683,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "How did the attackers gain access to HBGary's servers?",
     choices: [
-      "A. Brute-forced the server's admin password",
+      "A. Brute-forced the server's main admin password",
       "B. Exploited a known vulnerability in the server OS",
-      "C. Social engineering: from Aaron's compromised email, they impersonated him and convinced the admin (Juicy) to provide access",
-      "D. Physically broke into HBGary's data center"
+      "C. Social engineering — impersonated Aaron to trick Juicy",
+      "D. Physically broke into HBGary's corporate data center"
     ],
     correct: 2,
     explanation: "Using Aaron Barr's compromised email account, the attackers posed as Aaron and social-engineered Juicy (Jussi Jaakonaho, the Finnish system administrator) into confirming a password and 'opening it up to the world' while Aaron was supposedly 'traveling.' This chain — SQL injection → password cracking → password reuse → social engineering — shows how vulnerabilities compound.",
@@ -2739,9 +2739,9 @@ const QUIZ_DATA = [
     question: "What happened to the internal emails stolen from HBGary Federal?",
     choices: [
       "A. They were encrypted and held for ransom",
-      "B. They were published on WikiLeaks (tens of thousands of emails)",
+      "B. They were published publicly on WikiLeaks",
       "C. They were sold on the dark web",
-      "D. They were returned after negotiation"
+      "D. They were returned after private negotiation"
     ],
     correct: 1,
     explanation: "Tens of thousands of internal HBGary emails were published on WikiLeaks — for example, 17,191 emails mentioning 'Aaron' alone. The public release of these emails was humiliating and damaging, exposing internal communications and effectively destroying HBGary Federal as a company.",
@@ -2753,10 +2753,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "The HBGary Federal attack chain demonstrates a sequence of compounding vulnerabilities. Which is the correct order?",
     choices: [
-      "A. Phishing → password cracking → server access → email compromise",
-      "B. SQL injection → MD5 password cracking → password reuse (email compromise) → social engineering (server access)",
-      "C. Zero-day exploit → lateral movement → privilege escalation → data exfiltration",
-      "D. Brute force → session hijacking → privilege escalation → data theft"
+      "A. Phishing → cracking → server access → email compromise",
+      "B. SQL injection → MD5 cracking → password reuse → social engineering",
+      "C. Zero-day → lateral movement → privilege escalation → exfiltration",
+      "D. Brute force → session hijacking → escalation → data theft"
     ],
     correct: 1,
     explanation: "The attack chain was: (1) SQL injection on the custom CMS exposed the user database, (2) MD5-hashed passwords with no salt were cracked via rainbow tables, (3) password reuse gave access to Aaron's email, (4) social engineering from Aaron's email convinced admin Juicy to grant server access. Each vulnerability enabled the next step.",
@@ -2798,10 +2798,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Greg Hoglund, co-founder of HBGary, was known for:",
     choices: [
-      "A. Developing the NIST Cybersecurity Framework",
-      "B. Creating rootkit.com, establishing his reputation in security research",
+      "A. Developing the NIST Cybersecurity Framework draft",
+      "B. Creating rootkit.com to build his reputation",
       "C. Serving as CISO of Sony Pictures",
-      "D. Leading the FBI's cybercrime division"
+      "D. Leading the FBI's cybercrime division office"
     ],
     correct: 1,
     explanation: "Greg Hoglund was co-founder of HBGary and was known for rootkit.com, establishing his reputation in the security research community. He co-founded HBGary with his wife Penny Leavy-Hoglund. HBGary Federal was the subsidiary focused on U.S. government contracts, led by Aaron Barr.",
@@ -2823,8 +2823,8 @@ const QUIZ_DATA = [
     type: "mc",
     question: "What was the primary lesson of the HBGary Federal case?",
     choices: [
-      "A. State-sponsored hackers are unstoppable",
-      "B. 'Don't poke the hornet's nest' — don't provoke skilled adversaries without benefit, and basic security failures compound catastrophically",
+      "A. State-sponsored hackers are essentially unstoppable",
+      "B. 'Don't poke the nest'; basic failures compound",
       "C. Cloud hosting is inherently more secure than on-premises",
       "D. Anonymous is an organized military-style operation"
     ],
@@ -2838,9 +2838,9 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Tflow (Mustafa Al-Bassam) of LulzSec went on to:",
     choices: [
-      "A. Become an FBI informant",
-      "B. Complete a PhD in Computer Science focusing on blockchain",
-      "C. Teach at a UK university",
+      "A. Become an FBI informant after capture",
+      "B. Complete a PhD focused on blockchain",
+      "C. Teach at a UK university full-time",
       "D. Work as a penetration tester exclusively"
     ],
     correct: 1,
@@ -2853,10 +2853,10 @@ const QUIZ_DATA = [
     type: "mc",
     question: "Sabu (Hector Monsegur) pled guilty to 12 crimes potentially carrying 124 years in prison but served only:",
     choices: [
-      "A. 30 months",
-      "B. 20 months",
-      "C. 7 months (due to cooperation as an FBI informant)",
-      "D. No prison time"
+      "A. 30 months in prison",
+      "B. 20 months in prison",
+      "C. 7 months (due to informant cooperation)",
+      "D. No prison time served"
     ],
     correct: 2,
     explanation: "Sabu served only 7 months despite pleading to 12 crimes potentially carrying 124 years because he cooperated extensively as an FBI informant, helping identify and build cases against other LulzSec members. He is now a security researcher and executive at an AI research firm.",
